@@ -1,28 +1,113 @@
-.App {
+.logo {
+  height: 150px;
+}
+.subtitle {
+  font-style: italic;
+  font-size: x-large;
+  color: #3e15ad;
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.background {
+/* background-image: url('./assets/library2.jpg'); */
+background-color: bisque;
+background-position: center;
+background-size: cover;
+width: 100%;
+height: 100%;
+text-align: center;
+color: white;
+font-family: 'Courier New', Courier, monospace;
+font-weight: 1200;
+}
+.homecontent {
+  background-image: url ('/assets/hellobooks.jpg');
+  background-repeat: no-repeat;
+  height: 80%;
+  width: 100%;
+  position: relative;
+  background-size: cover !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
+}
+.inline-buttons {
+  margin-left: 15px;
+  margin-right: 15px;
+  display: table;
+  margin: 0 auto;
+  width: 100%;
+  margin: 20px;
+  text-align: center;
+}
+.outer
+{
+  margin-left: 20px;
+  width:100%;
+  text-align: center;
+}
+.navbar-nav {
+  float: right !important;
+}
+.nav-item {
+  padding : 0 25px 0 25px;
+}
+#allbooks {
+  width:95%;
+  padding: 10px;
+  margin: auto;
+}
+#onebook {
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 5px 10px 0 #888888;
+  margin: 10px;
+}
+#bookinfo{
+  text-align: center;
+}
+#singlebook {
+  box-sizing: content-box;    
+  width: 400px;
+  height: 350px;
+  padding: 10px; 
+  border-radius: 5px;
+  box-shadow: 10px 15px 0 #888888;
+  margin: 10px;
+  background-color: #eee;
+  font-size: 16px;
+  text-align: center;
+  margin-left: 300px;
+  margin-top: 20px
+}
+.inner
+{
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.footer {
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+    height: 60px;
+    background-color:#337ab7!important;
+    margin-bottom: 10px;
+    text-align: center;
+    color: aliceblue;
 }
-
-.App-title {
-  font-size: 1.5em;
+.footer-block {
+      margin: 20px 0;
+    }
+#welcomePage {
+  width: 50%;
+  margin-left: 24%;
+  margin-top: 16%;
 }
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+#signupPage {
+  width: 50%;
+  margin-left: 24%;
+  margin-top: 5%;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
+import { browserHistory } from 'react-router';
 
 class Loginform extends React.Component {
     state = {
@@ -26,7 +27,10 @@ class Loginform extends React.Component {
 
         axios.post("http://127.0.0.1:5000/api/v2/auth/login", logginguser)
             .then(response => {
-                console.log(response.data);
+                localStorage.setItem("access_token",response.data.Token)
+                localStorage.setItem("email",logginguser.email)
+                browserHistory.push('/books')
+
                 swal("Login successful");
 
             }).catch(error => {
@@ -43,6 +47,8 @@ class Loginform extends React.Component {
     render() {
         return (
             <div class="container">
+            <div className="jumbotron" id="welcomePage">
+        
                 <form onSubmit={this.handleSubmit}>
                     <h2> Log in </h2>
                     <div class="row">
@@ -72,6 +78,7 @@ class Loginform extends React.Component {
                     <br />
                     <button type="submit">Login</button>
                 </form>
+                </div>
             </div>
 
         )

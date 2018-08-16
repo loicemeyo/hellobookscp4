@@ -1,13 +1,21 @@
 import React from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
+import { browserHistory } from 'react-router'
+import "../App.css"
 
 class Signupform extends React.Component {
-    state = {
+
+    constructor(props) {
+        super(props);
+        this.state = {
         name: '',
         email:'',
-        password:''
+        password:'',
+        passwordb:''
     }
+    }
+    
 
     handleChange = (event) => {
         this.setState({
@@ -21,37 +29,35 @@ class Signupform extends React.Component {
         const newuser = {
             "name":this.state.name,
             "email":this.state.email,
-            "password":this.state.password
+            "password":this.state.password,
+            "confirm password":this.state.passwordb
         };
+        console.log(newuser);
 
         axios.post("http://127.0.0.1:5000/api/v2/auth/register", newuser)
         .then(response => {
-            console.log(response);
-            console.log(this.state);
-            if(response.data.status === 201){
-                swal("new user successfully registered");
-            } else {
-                swal(response.data.message);
-            }
+
+            browserHistory.push('/login')
+            swal("new user successfully registered");
+            
+
         }).catch(error => {
-            console.log(error.response);
             if(error.response.status === 409){
-                console.log(error.response);
+               alert(error.response.data.message);
             }
-            // else if (error.response.status === 400){
-            //     swal ("Bad request!");
-            // }
-            // else if (error.response.status === 200){
-            //     swal ("Error!")
-            // };
-
         });
-
-
+        this.setState({
+            name: '',
+            email:'',
+            password:'',
+            passwordb:''
+        });
+           
     };
     render (){
         return (
-        <div class = "container">
+        <div>
+        <div className = "jumbotron" id="signupPage">
             <form onSubmit={this.handleSubmit}>
             <h2> Sign up </h2>
                 <div class = "row">
@@ -67,8 +73,8 @@ class Signupform extends React.Component {
                     </div>
                 </div>
                 <br/>
-                <div class = "row">
-                    <div class ="col-xs-6">
+                <div className = "row">
+                    <div className ="col-xs-6">
                         <input
                         name="email"
                         type="text"
@@ -80,8 +86,8 @@ class Signupform extends React.Component {
                     </div>
                 </div>
                 <br/>
-                <div class = "row">
-                    <div class ="col-xs-6">
+                <div className = "row">
+                    <div className ="col-xs-6">
                         <input name="password"
                             type="password"
                             placeholder="Enter Password"
@@ -92,8 +98,21 @@ class Signupform extends React.Component {
                     </div>
                 </div>
                 <br/>
+                <div className = "row">
+                    <div className ="col-xs-6">
+                        <input name="passwordb"
+                            type="password"
+                            placeholder="Cofirm Password"
+                            required={false}
+                            defaultValue={this.state.passwordb}
+                            onChange={this.handleChange}
+                        />
+                    </div>
+                </div>
+                <br/>
                 <button type="submit">Signup</button> 
             </form>
+        </div>
         </div>
             
         )
