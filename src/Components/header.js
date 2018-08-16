@@ -1,6 +1,6 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
-import background from '../assets/hellobooks.jpg';
+import React from "react";
+import {Link} from "react-router";
+import background from "../assets/hellobooks.jpg";
 
 // const Header = () => (
 //     <header className = "row">
@@ -14,6 +14,6 @@ import background from '../assets/hellobooks.jpg';
 // )
 // export default Header;
 const Header = () => (
-    <div>Myheader</div>
-)
+  <div>Myheader</div>
+);
 export default Header;

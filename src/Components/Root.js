@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Navigation from "./navbar";
+import Footer from "./Footer";
 
 class Root extends Component {
   render() {
     return (
       <div>
-        <p> home page</p>
-          {this.props.children}
-          </div>
+        <Navigation/>
+        {this.props.children}
+        <Footer />
+      </div>
     );
   }
 }
