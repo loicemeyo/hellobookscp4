@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 class OneBook extends Component {
     state = {
@@ -17,21 +19,27 @@ class OneBook extends Component {
             .then(response => {
                 console.log(response.data.book)
                 this.setState({ oneBook: response.data.book })
-            }).catch()
+            }).catch(error => {
+                console.log(error.response);
+                if(error.response.status === 401){
+                    swal (error.response.data.Message);
+                }
+    });
     }
     render() {
         const book = this.state.oneBook
+        console.log(book)
         return (
-            <div style={{ padding: '20px',color:'#337ab7'}}>
+        <div style={{ padding: '20px',color:'#337ab7'}}>
+        <button className='btn btn-default'><Link to={`/books/${book.ID}`}>Go back</Link></button>
             <h2>Book Information</h2>
             <div id='allbooks' className="row">
             <div id="singlebook">
             <h3>{book.Title}</h3> <br /> <br /><br />
             <b>Author:   </b> {book.Author}  <br /> <br />
             <b>Year Published:  </b> {book.Publication}  <br /> <br />
-            <b>Book Available:  </b> {book.Status} <br/><br/>
+            <b>Book Available:  </b> {book.Status ? "Yes" : "No"} <br/><br/>
             <button className='btn btn-default'>Borrow book</button>
-            <button className='btn btn-default'>Return book</button>
             </div>
             </div>
             </div>

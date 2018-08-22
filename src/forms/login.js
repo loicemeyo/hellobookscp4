@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link, browserHistory } from 'react-router';
 import axios from 'axios';
+import decode from 'jwt-decode';
 import swal from 'sweetalert';
-import { browserHistory } from 'react-router';
 
 class Loginform extends React.Component {
     state = {
@@ -22,23 +23,35 @@ class Loginform extends React.Component {
 
             email: this.state.email,
             password: this.state.password
-        };console.log(logginguser);
+        };
+    let isAdmin=localStorage.getItem("email")
+    const admin="ann@gmail.com"
 
 
         axios.post("http://127.0.0.1:5000/api/v2/auth/login", logginguser)
             .then(response => {
+                console.log(response.data)
                 localStorage.setItem("access_token",response.data.Token)
-                localStorage.setItem("email",logginguser.email)
-                browserHistory.push('/books')
+                const user_data = decode(response.data.Token)
+                localStorage.setItem("email", user_data.identity.usermail)
+                (user_data.identity.is_admin ?
+                    browserHistory.push('/admin')
+                :browserHistory.push('/books'))
 
                 swal("Login successful");
 
             }).catch(error => {
-                console.log(error.response);
-                if(error.response.status === 401){
-                    swal (error.response.data.Message);
+                if (error.response !== undefined){
+                    if (error.response.status === 401) {
+                      const message = error.response.data.Error;
+                      swal("message!!", message, "error");
+                      localStorage.removeItem('access_token');
+                      browserHistory.push('/login');
+
+                    }
+                }else{
+                    console.log("sjdksdjksd skdjskdjsd",error)
                 }
-                
 
             });
 
@@ -46,14 +59,15 @@ class Loginform extends React.Component {
     };
     render() {
         return (
-            <div class="container">
-            <div className="jumbotron" id="welcomePage">
+            <div className="container" id="loginPage" >
+            <div className="jumbotron">
         
                 <form onSubmit={this.handleSubmit}>
                     <h2> Log in </h2>
-                    <div class="row">
-                        <div class="col-xs-6">
+                    <div className="row">
+                        <div className="col-xs-6">
                             <input
+                                className="form-control"
                                 name="email"
                                 type="text"
                                 placeholder="Enter Email"
@@ -64,9 +78,11 @@ class Loginform extends React.Component {
                         </div>
                     </div>
                     <br />
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <input name="password"
+                    <div className="row">
+                        <div className="col-xs-6">
+                            <input
+                                className="form-control"
+                                name="password"
                                 type="password"
                                 placeholder="Enter Password"
                                 required={false}
@@ -76,7 +92,12 @@ class Loginform extends React.Component {
                         </div>
                     </div>
                     <br />
-                    <button type="submit">Login</button>
+                        <button className='btn btn-default' type="submit">Login</button>
+                    <br/>
+                    <br/>
+                        <div>
+                                Forgot password? <Link to={"/requestreset"}>Click here to reset your password</Link> 
+                        </div>
                 </form>
                 </div>
             </div>

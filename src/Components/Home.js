@@ -11,7 +11,7 @@ class Home extends Component {
 						and its processes like stocking, tracking and renting books.
           </p>
           <div id="outer">
-            <Link to="/books" class="inner"><button type="submit" class="btn btn-primary">Get Started</button></Link>
+            <Link to="/signup" class="inner"><button type="submit" class="btn btn-primary">Get Started</button></Link>
           </div>
         </div>
       </div>

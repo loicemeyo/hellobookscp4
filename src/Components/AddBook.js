@@ -24,11 +24,11 @@ class AddBook extends Component {
             "year":this.state.year,
             "serial_number":this.state.serial
         };
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('access_token');
         const config ={ headers:{"Authorization":"Bearer " + token}}
         console.log(config)
 
-    axios.post("http://127.0.0.1:5000/api/v2/books", newbook, config)
+        axios.post("http://127.0.0.1:5000/api/v2/books", newbook, config)
         .then(response => {
             console.log(response);
             console.log(this.state);
@@ -50,12 +50,13 @@ class AddBook extends Component {
     };
    render() {
     return (
-        <div className = "container">
+        <div className = "jumbotron" id="signupPage">
         <form onSubmit={this.handleSubmit}>
-        <h2> add new book </h2>
+        <h2> Add new book </h2>
             <div className = "row">
-                <div className ="col-xs-12">
+                <div className ="col-xs-6">
                     <input
+                    className="form-control"
                     name="title"
                     type="text"
                     placeholder="Enter Book Title"
@@ -69,6 +70,7 @@ class AddBook extends Component {
             <div className = "row">
                 <div className ="col-xs-6">
                     <input
+                    className="form-control"
                     name="author"
                     type="text"
                     placeholder="Enter Book Author"
@@ -81,11 +83,13 @@ class AddBook extends Component {
             <br/>
             <div className = "row">
                 <div className ="col-xs-6">
-                    <input name="year"
+                    <input
+                        className="form-control"
+                        name="year"
                         type="number"
                         placeholder="Enter Publication Year"
                         required={true}
-                        // defaultValue={this.state.year}
+                        value={this.state.year}
                         onChange={this.handleChange}
                     />
                 </div>
@@ -93,17 +97,19 @@ class AddBook extends Component {
             <br/>
             <div className = "row">
                 <div className ="col-xs-6">
-                    <input name="serial"
+                    <input
+                    className="form-control"
+                        name="serial"
                         type="number"
                         placeholder="Enter Serial Number"
                         required={false}
-                        defaultValue={this.state.serial}
+                        value={this.state.serial}
                         onChange={this.handleChange}
                     />
                 </div>
             </div>
             <br/>
-            <button type="submit">Add</button> 
+            <button className='btn btn-default' type="submit">Add Book</button> 
         </form>
     </div>
 

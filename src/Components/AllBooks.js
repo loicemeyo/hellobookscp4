@@ -22,22 +22,21 @@ class AllBooks extends Component {
             }).catch()
     }
     render() {
-        return (
-            <div style={{ padding: '20px'}}>
-            <h2>All Books</h2>
-            <div id='allbooks' className="row">
-            {this.state.allBooks.map(book => 
-            <div className="col-sm-2" id="onebook" key={book.id}>
-            <h3>{book.Title}</h3> <br /> <br /><br />
-            <b>Author:   </b> {book.Author}  <br /> <br />
-            <b>publish:  </b> {book.Publication}  <br /> <br />
-            <button  className='btn btn-default'><Link to={`/books/${book.ID}`}>See</Link></button> <br /><br />
-            </div>
-        )}
-
-
-            
-        </div></div>
+        return (  
+            <div style={{ padding: '20px',color:'#337ab7'}}>
+                <h2>All Books</h2>
+                <div id='allbooks' className="row">
+                {this.state.allBooks.map(book => 
+                    <div className="col-sm-2" id="onebook" key={book.id}>
+                    <h3>{book.Title}</h3> <br /> <br /><br />
+                    <b>Author:   </b> {book.Author}  <br /> <br />
+                    <b>publish:  </b> {book.Publication}  <br /> <br />
+                    <Link className="btn btn-default" to={`/books/${book.ID}`}>See</Link> <br /><br />
+                    </div>
+                )}    
+                </div>
+                
+                </div>
     
         )};
     }

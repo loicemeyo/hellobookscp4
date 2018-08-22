@@ -61,8 +61,9 @@ class Signupform extends React.Component {
             <form onSubmit={this.handleSubmit}>
             <h2> Sign up </h2>
                 <div class = "row">
-                    <div class ="col-xs-12">
+                    <div class ="col-xs-6">
                         <input
+                        className="form-control"
                         name="name"
                         type="text"
                         placeholder="Enter Username"
@@ -76,6 +77,7 @@ class Signupform extends React.Component {
                 <div className = "row">
                     <div className ="col-xs-6">
                         <input
+                        className="form-control"
                         name="email"
                         type="text"
                         placeholder="Enter Email"
@@ -88,7 +90,9 @@ class Signupform extends React.Component {
                 <br/>
                 <div className = "row">
                     <div className ="col-xs-6">
-                        <input name="password"
+                        <input
+                            className="form-control"
+                            name="password"
                             type="password"
                             placeholder="Enter Password"
                             required={false}
@@ -100,7 +104,9 @@ class Signupform extends React.Component {
                 <br/>
                 <div className = "row">
                     <div className ="col-xs-6">
-                        <input name="passwordb"
+                        <input
+                            className="form-control"
+                            name="passwordb"
                             type="password"
                             placeholder="Cofirm Password"
                             required={false}
@@ -110,7 +116,7 @@ class Signupform extends React.Component {
                     </div>
                 </div>
                 <br/>
-                <button type="submit">Signup</button> 
+                <button className='btn btn-default' type="submit">Signup</button> 
             </form>
         </div>
         </div>

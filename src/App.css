@@ -101,6 +101,9 @@ font-weight: 1200;
 .footer-block {
       margin: 20px 0;
     }
+#input{
+  text-align: center;
+}
 #welcomePage {
   width: 50%;
   margin-left: 24%;
@@ -110,4 +113,12 @@ font-weight: 1200;
   width: 50%;
   margin-left: 24%;
   margin-top: 5%;
+}
+#loginPage{
+  width: 50%;
+  margin-left: 24%;
+  margin-top: 10%;
+}
+#login{
+  width:100%;
 }

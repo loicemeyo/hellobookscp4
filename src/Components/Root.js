@@ -3,6 +3,7 @@ import Navigation from "./navbar";
 import Footer from "./Footer";
 
 class Root extends Component {
+  // const tokenvalid=
   render() {
     return (
       <div>
