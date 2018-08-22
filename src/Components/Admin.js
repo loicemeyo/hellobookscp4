@@ -20,7 +20,15 @@ class Admin extends Component {
         this.setState({ allBooks: response.data.books });
         console.log(this.state.allBooks);
       }).catch(error => {
-        console.log(error);
+        if (error.response !== undefined){
+          if (error.response.status === 401) {
+            const message = error.response.data.Error;
+            swal("message!!", message, "error");
+            localStorage.removeItem("access_token");
+            browserHistory.push("/login");
+          }
+        }
+        
       });
   }
   /**

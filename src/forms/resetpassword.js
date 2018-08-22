@@ -13,8 +13,6 @@ class Resetform extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-
-        // const resettinguser = localStorage.getItem('email');
         const token = this.props.params.token
         const email = this.props.params.email
         const new_password= event.target.elements.newpassword.value
