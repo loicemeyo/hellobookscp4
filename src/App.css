@@ -122,3 +122,17 @@ font-weight: 1200;
 #login{
   width:100%;
 }
+#button{
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#error{
+  margin-left: 30%;
+  margin-top: 2%;
+  width: 50%;
+}
+#error2{
+  margin-left: 36%;
+  font-size: 20px;
+}
