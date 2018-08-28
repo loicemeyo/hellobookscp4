@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
-import { browserHistory } from 'react-router';
 
 class Resetform extends React.Component {
 
@@ -20,11 +19,9 @@ class Resetform extends React.Component {
 
 
         axios.post(`http://127.0.0.1:5000/api/v2/auth/reset-password?token=${token}`, {email:email, password:new_password, confirm_password:confirm_password})
-            .then(response => {
-
-                swal("You have successfully reset your password");
-
-            }).catch(error => {
+            .then(() => {
+                    swal("You have successfully reset your password");
+                }).catch(error => {
                 console.log(error.response);
                 if(error.response.status === 401){
                     swal (error.response.data.Message);

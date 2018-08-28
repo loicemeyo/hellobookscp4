@@ -18,9 +18,8 @@ class Admin extends Component {
     axios.get("http://127.0.0.1:5000/api/v2/books", config)
       .then(response => {
         this.setState({ allBooks: response.data.books });
-        console.log(this.state.allBooks);
       }).catch(error => {
-        if (error.response !== undefined){
+        if (error.response !== undefined) {
           if (error.response.status === 401) {
             const message = error.response.data.Error;
             swal("message!!", message, "error");
@@ -28,7 +27,7 @@ class Admin extends Component {
             browserHistory.push("/login");
           }
         }
-        
+
       });
   }
   /**
@@ -38,38 +37,34 @@ class Admin extends Component {
    */
   handleDelete(bookId) {
     const token = localStorage.getItem("access_token");
-    const config = { headers: { "Authorization": "Bearer" + token } };
+    const config = { headers: { "Authorization": "Bearer " + token } };
     const delete_book_url = `http://127.0.0.1:5000/api/v2/books/${bookId}`;
-    swal({
-      text: "Do you want to delete this book?",
-      icon: "warning",
-      buttons: "yes",
-      dangerMode: "true",
-    }).then((willDelete) => {
-      if (willDelete) {
-        axios.delete(delete_book_url, config)
-          .then(response => {
-            this.componentDidMount();
-            swal(response.data.Message, {
-              icon:"success",
-            });
-            browserHistory.push("/admin");
-          })
-          .catch(error => {
-            if (error.response.status === 404){
-              const message = error.response.data.Message;
-              swal("Error!!", message, "error");
-            }
+    
+    axios.delete(delete_book_url, config)
+      .then(response => {
+        this.componentDidMount();
+        swal("Success",response.data.message, "success");
+        browserHistory.push("/admin");
+      })
+      .catch(error => {
+        // if (error.response.status === 404) {
+        //   const message = error.response.data.Message;
+        //   swal("Error!!", message, "error");
+        // }
 
-          });
+      });
 
-      }
-    });
   }
   render() {
     return (
       <div>
         <h2 style={{ padding: "5px", color: "#337ab7" }}>Admin Dashboard</h2>
+        <div>
+          <Link to={"/addbook"}><button className="btn btn-primary" id="button">Add Book</button></Link>
+          <Link to={"/upgradeuser"}><button className="btn btn-primary" id="button">Change user status</button></Link>
+          <Link to={"/users"}><button className="btn btn-primary" id="button">View users</button></Link>
+        </div>
+        <br />
         <h2 style={{ padding: "5px", color: "#337ab7", textAlign: "center" }}>Available Books</h2>
         <div className="col=md-10">
           <table className="table">

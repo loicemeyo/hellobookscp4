@@ -39,17 +39,6 @@ class EditBook extends Component {
                     status:response.data.book.Status
                 });
             }).catch(error=>{
-                if(error.response.status === 404){
-                    const message = error.response.data.message
-                    swal("message!!", message, "error")
-                }
-                else if(error.response.status === 401){
-                        const message = error.response.data.message
-                        swal("message!!", message, "error")
-                        localStorage.removeItem('access_token');
-                        browserHistory.push('/login');
-                }
-
             })
     }
     handleSubmit = (event) => {

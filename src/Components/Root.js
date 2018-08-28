@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Navigation from "./navbar";
+import Navigation from "./Navigation";
 import Footer from "./Footer";
 
 class Root extends Component {

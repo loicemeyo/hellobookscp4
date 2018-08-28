@@ -3,7 +3,7 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
 
-class Logoutform extends React.Component {
+class UpgradeUser extends React.Component {
     state = {
         email: '',
     
@@ -52,7 +52,7 @@ class Logoutform extends React.Component {
     };
     render() {
         return (
-            <div class="container">
+            <div className="jumbotron" id="signupPage">
                 <form onSubmit={this.handleSubmit}>
                     <h2> Change User Status</h2>
                     <div class="row">
@@ -75,4 +75,4 @@ class Logoutform extends React.Component {
         )
     }
 }
-export default Logoutform;
+export default UpgradeUser;

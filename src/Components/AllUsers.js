@@ -24,14 +24,16 @@ class AllUsers extends Component {
     }
     render() {
         return (
-            <div>
+            <div style={{ padding: '20px',color:'#337ab7'}}>
             <h2>All Users</h2>
+            <div id='allbooks' className="row">
             <table className="table-bordered"style={{ border: '1px solid grey'}}>
-            <th><td>Email</td> <td>Name</td> <td>Status</td></th>
+            <tr><td>Email</td> <td>Name</td> <td>Admin</td></tr>
                 {this.state.allUsers.map(user => 
-                <tr key={user.id}><td>{user.Name}</td> <td>{user.Status}</td> <td>{user.Email}</td> </tr>
+                <tr key={user.id}><td>{user.Email}</td> <td>{user.Name}</td> <td>{user.Status ? "Yes" : "No"}</td> </tr>
                 )}
             </table>
+        </div>
         </div>
     
         )};
