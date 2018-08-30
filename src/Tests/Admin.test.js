@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import sinon from "sinon";
-import moxios from "moxios"
+import moxios from "moxios";
 import shallowToJson, { mountToJson } from "enzyme-to-json";
 import AddBook from "../Components/AddBook";
 import Admin from "../Components/Admin";
