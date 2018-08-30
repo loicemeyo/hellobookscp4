@@ -5,10 +5,13 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
+    "enzyme-to-json": "^3.3.4",
+    "jwt-decode": "^2.2.0",
+    "lint": "^1.1.2",
     "react": "^16.4.2",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.2",
-    "react-router": "^4.3.1",
+    "react-router": "^3.0.5",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "sweetalert": "^2.1.0"
@@ -17,6 +20,23 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "./node_modules/.bin/eslint ./src"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "enzyme": "^3.4.4",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "eslint": "^5.3.0",
+    "moxios": "^0.4.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/***",
+      "!src/registerServiceWorker.js",
+      "!src/Tests/__snapshots__/***",
+      "!src/Components/header.js",
+      "!src/App.js"
+    ]
   }
 }
