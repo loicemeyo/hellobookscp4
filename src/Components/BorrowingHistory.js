@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AddBook from './AddBook';
 import axios from 'axios';
 import {Link} from 'react-router';
+import swal from "sweetalert";
 class BorrowHistory extends Component {
     state = {
         bookHistory: []
@@ -19,7 +20,11 @@ class BorrowHistory extends Component {
             .then(response => {
                 this.setState({ bookHistory: response.data.book_history })
                 console.log(this.state.bookHistory)
-            }).catch()
+            }).catch(error => {
+                if (error.response.status === 401) {
+                    swal(error.response.data.Message);
+                }
+            });
     }
     render() {
         return (  

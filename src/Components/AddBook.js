@@ -26,7 +26,6 @@ class AddBook extends Component {
         };
         const token = localStorage.getItem('access_token');
         const config ={ headers:{"Authorization":"Bearer " + token}}
-        console.log(config)
 
         axios.post("http://127.0.0.1:5000/api/v2/books", newbook, config)
         .then(response => {
@@ -38,14 +37,6 @@ class AddBook extends Component {
                 swal(response.data.message);
             }
         }).catch({});
-        
-
-        // this.setState({
-        //     title: '',
-        //     author:'',
-        //     year:'',
-        //     serial:''
-        // });
            
     };
    render() {
@@ -56,6 +47,7 @@ class AddBook extends Component {
             <div className = "row">
                 <div className ="col-xs-6">
                     <input
+                    id="title"
                     className="form-control"
                     name="title"
                     type="text"
@@ -70,6 +62,7 @@ class AddBook extends Component {
             <div className = "row">
                 <div className ="col-xs-6">
                     <input
+                    id="author"
                     className="form-control"
                     name="author"
                     type="text"
@@ -84,6 +77,7 @@ class AddBook extends Component {
             <div className = "row">
                 <div className ="col-xs-6">
                     <input
+                        id="year"
                         className="form-control"
                         name="year"
                         type="number"
@@ -98,7 +92,8 @@ class AddBook extends Component {
             <div className = "row">
                 <div className ="col-xs-6">
                     <input
-                    className="form-control"
+                        id="serial"
+                        className="form-control"
                         name="serial"
                         type="number"
                         placeholder="Enter Serial Number"

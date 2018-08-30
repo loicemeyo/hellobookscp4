@@ -26,8 +26,6 @@ class Navigation extends React.Component {
          
         }).catch(error => {
               if (error.response.status === 401) {
-                const message = error.response.data.message;
-                swal("Error!!", message, "error");
                 localStorage.removeItem('access_token');
                 localStorage.removeItem('email')
                 browserHistory.push('/login');
@@ -39,9 +37,9 @@ class Navigation extends React.Component {
 };
   render() {
     let isloggedIn = localStorage.getItem("access_token");
-    
+
     return (
-  
+      
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand"><Link to="/">Hello Books</Link></a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +57,7 @@ class Navigation extends React.Component {
                 </a>
               </li>
               <li className="nav-item active">
-                <a className="nav-link"><Link to="/logout" onClick={this.handleLogout} className="inner">Logout</Link>
+                <a className="nav-link"><Link style={{ cursor: 'pointer'}} onClick={this.handleLogout} className="inner">Logout</Link>
                 </a>
               </li>
             </ul>
@@ -69,6 +67,10 @@ class Navigation extends React.Component {
             <ul className="navbar-nav">
               <li className="nav-item active">
                 <a className="nav-link"><Link to="/" className="inner">Home</Link>
+                </a>
+              </li>
+              <li className="nav-item active">
+                <a className="nav-link"><Link to="/signup" className="inner">Signup</Link>
                 </a>
               </li>
               <li className="nav-item active">
