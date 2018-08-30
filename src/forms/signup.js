@@ -32,18 +32,21 @@ class Signupform extends React.Component {
             "password":this.state.password,
             "confirm password":this.state.passwordb
         };
-        console.log(newuser);
+        // console.log(newuser);
 
         axios.post("http://127.0.0.1:5000/api/v2/auth/register", newuser)
         .then(response => {
 
             browserHistory.push('/login')
-            swal("new user successfully registered");
+            swal("You have successfully registered to HelloBooks");
             
 
         }).catch(error => {
-            if(error.response.status === 409){
-               alert(error.response.data.message);
+            if(error.response.status === 400){
+                swal("Error", error.response.data.message,"error");
+            }
+            else if(error.response.status === 409){
+               swal(error.response.data.message);
             }
         });
         this.setState({
@@ -60,9 +63,10 @@ class Signupform extends React.Component {
         <div className = "jumbotron" id="signupPage">
             <form onSubmit={this.handleSubmit}>
             <h2> Sign up </h2>
-                <div class = "row">
-                    <div class ="col-xs-6">
+                <div className = "row">
+                    <div className ="col-xs-6">
                         <input
+                        id="username"
                         className="form-control"
                         name="name"
                         type="text"
@@ -77,9 +81,10 @@ class Signupform extends React.Component {
                 <div className = "row">
                     <div className ="col-xs-6">
                         <input
+                        id="email"
                         className="form-control"
                         name="email"
-                        type="text"
+                        type="email"
                         placeholder="Enter Email"
                         required={true}
                         value={this.state.email}
@@ -91,6 +96,7 @@ class Signupform extends React.Component {
                 <div className = "row">
                     <div className ="col-xs-6">
                         <input
+                            id="password"
                             className="form-control"
                             name="password"
                             type="password"
@@ -105,10 +111,11 @@ class Signupform extends React.Component {
                 <div className = "row">
                     <div className ="col-xs-6">
                         <input
+                            id="passwordb"
                             className="form-control"
                             name="passwordb"
                             type="password"
-                            placeholder="Cofirm Password"
+                            placeholder="Confirm Password"
                             required={false}
                             defaultValue={this.state.passwordb}
                             onChange={this.handleChange}

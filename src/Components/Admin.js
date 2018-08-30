@@ -11,6 +11,9 @@ class Admin extends Component {
   }
   componentDidMount() {
     const token = localStorage.getItem("access_token");
+    if(!token){
+      return browserHistory.push("/login");
+    }
 
     const config = { headers: { "Authorization": "Bearer " + token } };
 

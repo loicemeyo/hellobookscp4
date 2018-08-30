@@ -56,6 +56,7 @@ class Loginform extends React.Component {
                         <div className="row">
                             <div className="col-xs-6">
                                 <input
+                                    id="email"
                                     className="form-control"
                                     name="email"
                                     type="text"
@@ -70,6 +71,7 @@ class Loginform extends React.Component {
                         <div className="row">
                             <div className="col-xs-6">
                                 <input
+                                    id="password"
                                     className="form-control"
                                     name="password"
                                     type="password"
