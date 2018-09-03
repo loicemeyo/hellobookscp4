@@ -77,7 +77,7 @@ font-weight: 1200;
   background-color: #eee;
   font-size: 16px;
   text-align: center;
-  margin-left: 300px;
+  margin-left: 350px;
   margin-top: 20px
 }
 .inner
@@ -91,7 +91,6 @@ font-weight: 1200;
 .footer {
     bottom: 0;
     width: 100%;
-    position: fixed;
     height: 60px;
     background-color:#337ab7!important;
     margin-bottom: 10px;
@@ -107,17 +106,20 @@ font-weight: 1200;
 #welcomePage {
   width: 50%;
   margin-left: 24%;
-  margin-top: 16%;
+  margin-top: 14%;
+  margin-bottom: 15%
 }
 #signupPage {
   width: 50%;
   margin-left: 24%;
   margin-top: 5%;
+  margin-bottom: 9%
 }
 #loginPage{
   width: 50%;
   margin-left: 24%;
   margin-top: 10%;
+  margin-bottom: 10%
 }
 #login{
   width:100%;
@@ -135,4 +137,9 @@ font-weight: 1200;
 #error2{
   margin-left: 36%;
   font-size: 20px;
+}
+
+#table{
+  width: 90%;
+  margin: auto
 }

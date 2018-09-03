@@ -30,6 +30,7 @@ class Loginform extends React.Component {
                 console.log(response.data.Admin)
                 localStorage.setItem("access_token", response.data.Token)
                 localStorage.setItem("email", logginguser.email)
+                localStorage.setItem("admin", response.data.Admin)
                 swal("Login successful");
                 if(response.data.Admin){
                     return browserHistory.push('/admin')

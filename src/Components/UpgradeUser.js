@@ -8,6 +8,12 @@ class UpgradeUser extends React.Component {
         email: '',
     
     }
+    componentDidMount (){
+        const token = localStorage.getItem("access_token");
+        if(!token){
+            return browserHistory.push("/login")
+        }
+    }
 
     handleChange = (event) => {
         this.setState({
@@ -22,11 +28,11 @@ class UpgradeUser extends React.Component {
 
             email: this.state.email,
     
-        };console.log(upgradinguser);
+        };
 
         const token = localStorage.getItem('access_token');
         const config ={ headers:{"Authorization":"Bearer " + token}}
-        console.log(config)
+    
 
         axios.put("http://127.0.0.1:5000//api/v2/auth/register", upgradinguser, config)
             .then(response => {
@@ -52,12 +58,15 @@ class UpgradeUser extends React.Component {
     };
     render() {
         return (
+            <div style={{ padding: '30px', color: '#337ab7' }}>
+            <button className="btn btn-primary" onClick={browserHistory.goBack}>Go Back</button>
             <div className="jumbotron" id="signupPage">
                 <form onSubmit={this.handleSubmit}>
                     <h2> Change User Status</h2>
-                    <div class="row">
-                        <div class="col-xs-6">
+                    <div className="row">
+                        <div className="col-xs-6">
                             <input
+                                id="email"
                                 name="email"
                                 type="text"
                                 placeholder="Enter Email"
@@ -68,8 +77,9 @@ class UpgradeUser extends React.Component {
                         </div>
                     </div>
                     <br />
-                    <button type="submit">Change Status</button>
+                    <button className='btn btn-primary' type="submit">Change Status</button>
                 </form>
+            </div>
             </div>
 
         )

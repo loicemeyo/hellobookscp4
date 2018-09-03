@@ -36,7 +36,6 @@ class Signupform extends React.Component {
 
         axios.post("http://127.0.0.1:5000/api/v2/auth/register", newuser)
         .then(response => {
-
             browserHistory.push('/login')
             swal("You have successfully registered to HelloBooks");
             

@@ -8,7 +8,6 @@ import Error from "../Components/Error";
 import Loginform from "../forms/login";
 import Signupform from "../forms/signup";
 import Footer from "../Components/Footer";
-import Requestform from "../forms/requestreset";
 import ReactDOM from "react-dom";
 import App from "../App";
 import moxios from "moxios";
@@ -41,12 +40,19 @@ describe("Test Root Component", () => {
 
 });
 describe("Test Navigation Component", () => {
-  const wrapper = shallow(<Navigation />);
+  const wrapper = shallow(<Navigation/>);
 
   it("Navigation component renders without crushing", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
 
   });
+  // it("Calls handleLogout() on logout function click", () => {
+  //   let handleLogout = sinon.spy();
+  //   let wrapper = mount(<Navigation onClick={handleLogout} />);
+  //   wrapper.find("#logout").simulate("click");
+
+  //   moxios.wait(() => { });
+  // });
 
 });
 describe("Test Login Component", () => {
@@ -146,15 +152,7 @@ describe("Test Footer Component", () => {
   });
 
 });
-describe("Test Requestform Component", () => {
-  const wrapper = shallow(<Requestform />);
 
-  it("Request password component renders without crushing", () => {
-    expect(shallowToJson(wrapper)).toMatchSnapshot();
-
-  });
-
-});
 describe("Test Error Component", () => {
   const wrapper = shallow(<Error />);
 
