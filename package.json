@@ -20,12 +20,15 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/eslint ./src"
+    "lint": "./node_modules/.bin/eslint ./src",
+    "coveralls": "react-scripts test --env=jsdom --coverage --coverageReporters=text-lcov | coveralls"
+
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
+    "coveralls": "^3.0.2",
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
     "eslint": "^5.3.0",
