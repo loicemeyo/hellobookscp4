@@ -6,7 +6,7 @@
 
 Hello-Books is a simple application that helps manage a library and its processes like stocking, tracking and renting books. A normal user (non-admin) can register to be a user, login, view all books available, borrow a book and logout. The admin, in addition to what the normal user can do is also able to create a new book, edit or delete an existing book.The admin role can also upgrade a normal user to admin status and view all the current users.<br><br>
 
-Link to Heroku application: <br><br>
+Link to Heroku application:https://boiling-shelf-58690.herokuapp.com/ <br><br>
 Link to HelloBooks API documentation: https://hellobooks12.docs.apiary.io/#<br> 
 
 ##Technology used
