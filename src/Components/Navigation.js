@@ -6,7 +6,6 @@ import swal from 'sweetalert';
 class Navigation extends React.Component {
   
   handleLogout = (event) => {
-    event.preventDefault();
 
     const loggingoutuser = {
 
@@ -37,6 +36,7 @@ class Navigation extends React.Component {
 };
   render() {
     let isloggedIn = localStorage.getItem("access_token");
+    let isadmin=JSON.parse(localStorage.getItem("admin"));
 
     return (
       
@@ -47,20 +47,28 @@ class Navigation extends React.Component {
         </button>
         {isloggedIn ?(
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item active">
-                <a className="nav-link"><Link to="/" className="inner">Home</Link>
-                </a>
-              </li>
-              <li className="nav-item active">
-                <a className="nav-link"><Link to="/users/books" className="inner">User History</Link>
-                </a>
-              </li>
-              <li className="nav-item active">
-                <a className="nav-link"><Link style={{ cursor: 'pointer'}} onClick={this.handleLogout} className="inner">Logout</Link>
-                </a>
-              </li>
-            </ul>
+          <ul className="navbar-nav">
+          {isadmin? (
+            <li className="nav-item active">
+            <a className="nav-link"><Link to="/admin" className="inner">Home</Link>
+            </a>
+          </li>):
+          (
+            <li className="nav-item active">
+            <a className="nav-link"><Link to="/books" className="inner">Home</Link>
+            </a>
+          </li>
+          )}
+            <li className="nav-item active">
+              <a className="nav-link"><Link to="/users/books" className="inner">User History</Link>
+              </a>
+            </li>
+            <li className="nav-item active">
+              <a className="nav-link"><Link id="logout" style={{ cursor: 'pointer'}} onClick={this.handleLogout} className="inner">Logout</Link>
+              </a>
+            </li>
+          </ul>
+          
           </div>
         ):(
           <div className="collapse navbar-collapse" id="navbarNav">

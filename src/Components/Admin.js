@@ -11,7 +11,7 @@ class Admin extends Component {
   }
   componentDidMount() {
     const token = localStorage.getItem("access_token");
-    if(!token){
+    if (!token) {
       return browserHistory.push("/login");
     }
 
@@ -34,7 +34,7 @@ class Admin extends Component {
       });
   }
   /**
-   * Make a server request to delete a business
+   * Make a server request to delete a book
    * @param {int} bookId
    * @returns {string} success message
    */
@@ -42,21 +42,27 @@ class Admin extends Component {
     const token = localStorage.getItem("access_token");
     const config = { headers: { "Authorization": "Bearer " + token } };
     const delete_book_url = `http://127.0.0.1:5000/api/v2/books/${bookId}`;
-    
-    axios.delete(delete_book_url, config)
-      .then(response => {
-        this.componentDidMount();
-        swal("Success",response.data.message, "success");
-        browserHistory.push("/admin");
-      })
-      .catch(error => {
-        // if (error.response.status === 404) {
-        //   const message = error.response.data.Message;
-        //   swal("Error!!", message, "error");
-        // }
-
-      });
-
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this book!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios.delete(delete_book_url, config)
+          .then(response => {
+            swal("Success", response.data.message, "success");
+            browserHistory.push("/admin");
+          })
+          .catch(error => {
+            if (error.response.status === 404) {
+              const message = error.response.data.Message;
+              swal("Error!!", message, "error");
+            }
+          });
+      }
+    });
   }
   render() {
     return (
@@ -69,8 +75,8 @@ class Admin extends Component {
         </div>
         <br />
         <h2 style={{ padding: "5px", color: "#337ab7", textAlign: "center" }}>Available Books</h2>
-        <div className="col=md-10">
-          <table className="table">
+        <div className="col=md-10" >
+          <table className="table" id="table">
             <thead>
               <tr>
                 <th>Book</th>

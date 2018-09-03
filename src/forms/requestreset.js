@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
-import { browserHistory } from 'react-router';
 
 class Requestform extends React.Component {
     state = {
@@ -51,6 +50,7 @@ class Requestform extends React.Component {
                     <div className="row">
                         <div className="col-xs-6">
                             <input
+                                id="email"
                                 className="form-control"
                                 name="email"
                                 type="text"

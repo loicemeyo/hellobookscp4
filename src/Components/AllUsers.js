@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import { Link } from "react-router";
 class AllUsers extends Component {
     state = {
         allUsers: []
@@ -25,15 +25,18 @@ class AllUsers extends Component {
     render() {
         return (
             <div style={{ padding: '20px',color:'#337ab7'}}>
-            <h2>All Users</h2>
-            <div id='allbooks' className="row">
-            <table className="table-bordered"style={{ border: '1px solid grey'}}>
-            <tr><td>Email</td> <td>Name</td> <td>Admin</td></tr>
-                {this.state.allUsers.map(user => 
-                <tr key={user.id}><td>{user.Email}</td> <td>{user.Name}</td> <td>{user.Status ? "Yes" : "No"}</td> </tr>
-                )}
-            </table>
-        </div>
+            <h2 style={{ padding: "5px", color: "#337ab7", textAlign: "center" }}>HelloBooks Users</h2>
+            <br />
+            <div className="col=md-8">
+                <table className="table" style={{ border: '1px solid grey'}}>
+                <tr><th>Email</th> <th>Name</th> <th>Admin</th></tr>
+                    {this.state.allUsers.map(user => 
+                    <tr key={user.id}>
+                    <td>{user.Email}</td> <td>{user.Name}</td> <td>{user.Status ? "Yes" : "No"}</td> 
+                    </tr>
+                    )}
+                </table>
+            </div>
         </div>
     
         )};

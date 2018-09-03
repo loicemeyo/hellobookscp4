@@ -71,12 +71,15 @@ class EditBook extends Component {
 
    render() {
     return (
+        <div style={{ padding: '30px', color: '#337ab7' }}>
+        <button className="btn btn-primary" onClick={browserHistory.goBack}>Go Back</button>
         <div className = "jumbotron" id="signupPage">
         <form onSubmit={this.handleSubmit}>
         <h2> Edit Book details </h2>
             <div className = "row">
                 <div className ="col-xs-6">
                     <input
+                    id="title"
                     className="form-control"
                     name="title"
                     type="text"
@@ -91,6 +94,7 @@ class EditBook extends Component {
             <div className = "row">
                 <div className ="col-xs-6">
                     <input
+                    id="author"
                     className="form-control"
                     name="author"
                     type="text"
@@ -105,6 +109,7 @@ class EditBook extends Component {
             <div className = "row">
                 <div className ="col-xs-6">
                     <input
+                        id="year"
                         className="form-control"
                         name="year"
                         type="number"
@@ -119,7 +124,8 @@ class EditBook extends Component {
             <div className = "row">
                 <div className ="col-xs-6">
                     <input
-                    className="form-control"
+                        id="serial"
+                        className="form-control"
                         name="serial"
                         type="number"
                         placeholder="Edit Serial Number"
@@ -130,8 +136,9 @@ class EditBook extends Component {
                 </div>
             </div>
             <br/>
-            <button className='btn btn-default' type="submit">Edit Book</button> 
+            <button className='btn btn-primary' type="submit">Edit Book</button> 
         </form>
+    </div>
     </div>
 
            );

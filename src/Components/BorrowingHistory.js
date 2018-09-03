@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import AddBook from './AddBook';
 import axios from 'axios';
-import {Link} from 'react-router';
+import { Link, browserHistory} from 'react-router';
 import swal from "sweetalert";
 class BorrowHistory extends Component {
     state = {
         bookHistory: []
     }
 
-
-
     componentDidMount() {
-        const token = localStorage.getItem('access_token');
+        const token = localStorage.getItem("access_token");
+        if (!token) {
+            return browserHistory.push("/login");
+    }
 
         const config = { headers: { 'Authorization': "Bearer " + token } };
 
@@ -27,9 +28,11 @@ class BorrowHistory extends Component {
             });
     }
     render() {
-        return (  
-            <div style={{ padding: '20px',color:'#337ab7'}}>
-                <h2>Borrowing History</h2>
+        return (
+
+            <div style={{ padding: '20px', color:'#337ab7'}}>
+            <button className='btn btn-primary' onClick={browserHistory.goBack}>Back</button>
+                <h2 style={{textAlign:'center'}}>Borrowing History</h2>
                 <div id='allbooks' className="row">
                 {this.state.bookHistory.map(book => 
                     <div className="col-sm-2" id="onebook" key={book.ID}>

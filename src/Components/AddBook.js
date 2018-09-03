@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
+import { browserHistory } from "react-router";
 
 class AddBook extends Component {
     state = {
@@ -9,7 +10,12 @@ class AddBook extends Component {
         year:'',
         serial:'',
     }
-
+    componentDidMount() {
+        const token = localStorage.getItem("access_token");
+        if (!token) {
+            return browserHistory.push("/login");
+        }
+    }
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
@@ -24,8 +30,11 @@ class AddBook extends Component {
             "year":this.state.year,
             "serial_number":this.state.serial
         };
-        const token = localStorage.getItem('access_token');
+
+        const token = localStorage.getItem("access_token");
+        
         const config ={ headers:{"Authorization":"Bearer " + token}}
+       
 
         axios.post("http://127.0.0.1:5000/api/v2/books", newbook, config)
         .then(response => {
@@ -37,10 +46,11 @@ class AddBook extends Component {
                 swal(response.data.message);
             }
         }).catch({});
-           
-    };
+    };   
    render() {
     return (
+        <div style={{ padding: '30px', color: '#337ab7' }}>
+        <button className="btn btn-primary" onClick={browserHistory.goBack}>Go Back</button>
         <div className = "jumbotron" id="signupPage">
         <form onSubmit={this.handleSubmit}>
         <h2> Add new book </h2>
@@ -95,7 +105,7 @@ class AddBook extends Component {
                         id="serial"
                         className="form-control"
                         name="serial"
-                        type="number"
+                        type="string"
                         placeholder="Enter Serial Number"
                         required={false}
                         value={this.state.serial}
@@ -104,8 +114,9 @@ class AddBook extends Component {
                 </div>
             </div>
             <br/>
-            <button className='btn btn-default' type="submit">Add Book</button> 
+            <button className='btn btn-primary' type="submit">Add Book</button> 
         </form>
+    </div>
     </div>
 
            );
