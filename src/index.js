@@ -11,7 +11,7 @@ import Signupform from "./forms/signup";
 import Loginform from "./forms/login";
 import Requestform from "./forms/requestreset";
 import Resetform from "./forms/resetpassword";
-import History from "./Components/BorrowingHistory";
+import BorrowingHistory from "./Components/BorrowingHistory";
 import AllUsers from "./Components/AllUsers";
 import UpgradeUser from "./Components/UpgradeUser";
 import Admin from "./Components/Admin";
@@ -35,7 +35,7 @@ class App extends Component {
           <ProtectedRoute path={"/resetpassword/:token/:email"} component={Resetform}/>
           <ProtectedRoute path={"/books"} component={AllBooks} />
           <ProtectedRoute path={"/books/:id"} component={OneBook} />
-          <ProtectedRoute path={"/users/books"} component={History}/>
+          <ProtectedRoute path={"/users/books"} component={BorrowingHistory}/>
           <ProtectedRoute path={"/addbook"} component={AddBook} />
           <ProtectedRoute path={"/users"} component={AllUsers} />
           <ProtectedRoute path={"/upgradeuser"} component={UpgradeUser} />
