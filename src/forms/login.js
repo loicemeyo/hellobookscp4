@@ -4,18 +4,28 @@ import axios from 'axios';
 import decode from 'jwt-decode';
 import swal from 'sweetalert';
 
+/**
+ * The Login component
+ */
 class Loginform extends React.Component {
     state = {
         email: '',
         password: ''
     }
-
+    /**
+     * This function sets the state to the new field value as entered by the user
+     * @param {string} e
+     * @returns {string} value
+     */
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
 
+    /**
+     * Makes a server request to validate user and allow login
+     */
     handleSubmit = (event) => {
         event.preventDefault();
 

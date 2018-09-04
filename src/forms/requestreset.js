@@ -2,18 +2,27 @@ import React from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
 
+/**
+ * The Requestform component allows a user to submit a password request
+ */
 class Requestform extends React.Component {
     state = {
         email: '',
     
     }
-
+    /**
+     * This function sets the state to the new field value as entered by the user
+     * @param {string} e
+     * @returns {string} value
+     */
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
-
+    /**
+     * Makes a server request to validate email and send a reset link to user's email
+     */
     handleSubmit = (event) => {
         event.preventDefault();
 

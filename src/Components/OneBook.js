@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import { Link, browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import axios from 'axios';
 import swal from 'sweetalert';
+
+/**
+ * This component renders a single book
+ * @returns {object} book
+ */
 
 class OneBook extends Component {
     state = {
@@ -13,6 +18,10 @@ class OneBook extends Component {
             return browserHistory.push("/login");
         }
     }
+    /**
+     * This function enables a user to borrow a single book when logged in
+     * @param {int} bookId 
+     */
     handleBorrow(bookId) {
         const token = localStorage.getItem("access_token");
         const email = localStorage.getItem("email")
@@ -33,10 +42,14 @@ class OneBook extends Component {
                     swal(error.response.data.Message);
                 }
                 else if (error.response.status === 403) {
-                    swal(error.response.data.Message);
+                    swal(error.response.data.message);
                 }
             });
     }
+    /**
+     * This function enables a user to return a single book they've previously borrowed
+     * @param {int} bookId 
+     */
     handleReturn(bookId) {
         const token = localStorage.getItem("access_token");
         const email = localStorage.getItem("email")
@@ -46,7 +59,7 @@ class OneBook extends Component {
             .then(response => {
                 
                 console.log(response)
-                browserHistory.push("/books");
+                browserHistory.push("/users/books");
                 swal(response.data.Message);
             }).catch(error => {
                 if (error.response.status === 404) {
@@ -54,6 +67,10 @@ class OneBook extends Component {
                 }
             });
     }
+    /**
+     * This method querries the server to obtain a single book
+     * @returns {object} book
+     */
 
     componentWillMount(){
         const token = localStorage.getItem("access_token");
@@ -76,7 +93,6 @@ class OneBook extends Component {
 
     render() {
         const book = this.state.oneBook
-        // console.log(book)
         return (
             <div style={{ padding: '20px', color: '#337ab7' }}>
                 <button className='btn btn-primary' onClick={browserHistory.goBack}>Back</button>

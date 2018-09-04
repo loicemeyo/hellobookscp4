@@ -2,9 +2,18 @@ import React from "react";
 import { Link, browserHistory} from "react-router";
 import axios from 'axios';
 import swal from 'sweetalert';
+/**
+ * Navigation Component
+ * Displays signup/login when user is not logged in
+ * Displays logout upon login
+ * The Home tab redirects a normal user to the view all books but redirects admin to view admin page
+ */
 
 class Navigation extends React.Component {
-  
+
+  /**
+   * The logout function is embedded within navigation
+   */
   handleLogout = (event) => {
 
     const loggingoutuser = {
@@ -12,7 +21,6 @@ class Navigation extends React.Component {
         email: localStorage.getItem('email'),
 
     };
-    console.log(loggingoutuser)
     const token = localStorage.getItem('access_token');
     const config ={ headers:{"Authorization":"Bearer " + token}}
 

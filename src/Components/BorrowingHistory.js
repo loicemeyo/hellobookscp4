@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import AddBook from './AddBook';
 import axios from 'axios';
 import { Link, browserHistory} from 'react-router';
 import swal from "sweetalert";
+
+/**
+ * This component displays the borrowing history of a user
+ */
 class BorrowHistory extends Component {
     state = {
         bookHistory: []
     }
-
+/**
+   * Make server request to display all the borrowing history of a user
+   * Allow user to view this page only when they are logged in
+   * @returns {object} bookHistory
+   */
     componentDidMount() {
         const token = localStorage.getItem("access_token");
         if (!token) {
@@ -27,7 +34,9 @@ class BorrowHistory extends Component {
                 }
             });
     }
+    
     render() {
+        console.log(this.state)
         return (
 
             <div style={{ padding: '20px', color:'#337ab7'}}>
@@ -35,9 +44,11 @@ class BorrowHistory extends Component {
                 <h2 style={{textAlign:'center'}}>Borrowing History</h2>
                 <div id='allbooks' className="row">
                 {this.state.bookHistory.map(book => 
+                    
                     <div className="col-sm-2" id="onebook" key={book.ID}>
-                    <h3>{book.Title}</h3> <br /> <br /><br />
-                    <b>ID:   </b> {book.ID}  <br /> <br />{book.Returned ? "Yes" : "No"}<br /> <br />
+                    <br /> <br />
+                    <b>ID:   </b> {book.ID}  <br /> <br />
+                    <b> Returned:</b>{book.Returned ? "Yes" : "No"}<br /> <br />
                     <b>Borrowed:   </b> {book.Borrowed}  <br /> <br />
                     <b>Due:   </b> {book.Due}  <br /> <br />
                     <b>Person:  </b> {book.Usermail}  <br /> <br />

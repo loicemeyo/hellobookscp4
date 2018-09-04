@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Link, browserHistory } from "react-router";
 import swal from "sweetalert";
 import axios from "axios";
+
+/**
+ * This component renders the admin dashboard
+ */
 class Admin extends Component {
   constructor() {
     super();
@@ -9,6 +13,11 @@ class Admin extends Component {
       allBooks: []
     };
   }
+  /**
+     * Allow the admin to view this function only when they are logged in.
+     * Otherwise, redirect to login
+     * @returns {object} admin
+     */
   componentDidMount() {
     const token = localStorage.getItem("access_token");
     if (!token) {

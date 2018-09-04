@@ -3,6 +3,10 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import {browserHistory} from 'react-router';
 
+/**
+ * This component enables an admin to edit a book to the library
+ */
+
 class EditBook extends Component {
     constructor (props){
     super(props)
@@ -13,12 +17,31 @@ class EditBook extends Component {
         year:'',
         serial:'',
     }}
-
+     /**
+     * Allow the admin to view this function only when they are logged in.
+     * Otherwise, redirect to login
+     */
+    componentDidMount() {
+        const token = localStorage.getItem("access_token");
+        if (!token) {
+            return browserHistory.push("/login");
+        }
+    }
+    /**
+     * This function sets the state to the new field value as entered by the user
+     * @param {string} e
+     * @returns {string} value
+     */
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
+    /**
+     * Make server request to get the book by ID and populate input fields withe the current book details
+     * @param {int} bookId
+     * @returns {object}book
+     */
     componentDidMount() {
         const token = localStorage.getItem('access_token');
         const bookId = this.props.params.id;
@@ -41,6 +64,12 @@ class EditBook extends Component {
             }).catch(error=>{
             })
     }
+    /**
+     * Make server request to edit a book by given id
+     * @param {string} e
+     * @returns {string} success message
+     */
+
     handleSubmit = (event) => {
         event.preventDefault();
 
@@ -127,7 +156,7 @@ class EditBook extends Component {
                         id="serial"
                         className="form-control"
                         name="serial"
-                        type="number"
+                        type="text"
                         placeholder="Edit Serial Number"
                         required={false}
                         value={this.state.serial}

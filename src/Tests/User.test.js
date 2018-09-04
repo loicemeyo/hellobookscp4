@@ -18,15 +18,15 @@ describe("Test Requestform Component", () => {
     moxios.uninstall();
   });
   
-  it("Request password component renders without crushing", () => {
+  it("Request password component renders without crashing", () => {
     let wrapper = shallow(<Requestform />);
     expect(shallowToJson(wrapper)).toMatchSnapshot();
 
   });
   it("Calls handleSubmit() on Requestform submission", () => {
-    let wrapper = shallow(<Requestform />);
+    // let wrapper = shallow(<Requestform />);
     let handleSubmit = sinon.spy();
-    wrapper = mount(<Requestform onSubmit={handleSubmit} />);
+    let wrapper = mount(<Requestform onSubmit={handleSubmit} />);
     wrapper.find("form").simulate("submit");
 
     moxios.wait(() => { });
