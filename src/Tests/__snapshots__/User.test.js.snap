@@ -1,0 +1,267 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test AllBooks Component Allbooks component renders without crushing 1`] = `
+<div
+  style={
+    Object {
+      "color": "#337ab7",
+      "padding": "20px",
+    }
+  }
+>
+  <h2
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    All Books
+  </h2>
+  <button
+    className="btn btn-primary"
+    id="back"
+  >
+    Back
+  </button>
+  <div
+    className="row"
+    id="allbooks"
+  />
+  <br />
+  <div
+    style={
+      Object {
+        "float": "right",
+        "textDecoration": "none",
+      }
+    }
+  >
+    <t
+      initialPage={1}
+      items={Array []}
+      labels={
+        Object {
+          "first": "First",
+          "last": "Last",
+          "next": "Next",
+          "previous": "Previous",
+        }
+      }
+      onChangePage={[Function]}
+      pageSize={6}
+    />
+  </div>
+</div>
+`;
+
+exports[`Test BorrowHistory Component BorrowHistory component renders without crushing 1`] = `
+<div
+  style={
+    Object {
+      "color": "#337ab7",
+      "padding": "20px",
+    }
+  }
+>
+  <button
+    className="btn btn-primary"
+    onClick={[Function]}
+  >
+    Back
+  </button>
+  <h2
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    Borrowing History
+  </h2>
+  <div
+    className="row"
+    id="allbooks"
+  />
+</div>
+`;
+
+exports[`Test OneBook Component OneBook component renders without crushing 1`] = `
+<div
+  style={
+    Object {
+      "color": "#337ab7",
+      "padding": "20px",
+    }
+  }
+>
+  <button
+    className="btn btn-primary"
+    onClick={[Function]}
+  >
+    Back
+  </button>
+  <h2
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    Book Information
+  </h2>
+  <div
+    className="row"
+    id="allbooks"
+  >
+    <div
+      id="singlebook"
+    >
+      <h3 />
+       
+      <br />
+       
+      <br />
+      <br />
+      <b>
+        Author:   
+      </b>
+       
+        
+      <br />
+       
+      <br />
+      <b>
+        Year Published:  
+      </b>
+       
+        
+      <br />
+       
+      <br />
+      <b>
+        Book Available:  
+      </b>
+       
+      No
+       
+      <br />
+      <br />
+      <button
+        className="btn btn-default"
+        id="borrow"
+        onClick={[Function]}
+      >
+        Borrow book
+      </button>
+      <button
+        className="btn btn-default"
+        id="return"
+        onClick={[Function]}
+      >
+        Return book
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Test Requestform Component Request password component renders without crashing 1`] = `
+<div
+  className="container"
+  id="loginPage"
+>
+  <div
+    className="jumbotron"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <h2>
+         Request Reset Password 
+      </h2>
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            id="email"
+            name="email"
+            onChange={[Function]}
+            placeholder="Enter Email"
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <br />
+      <button
+        className="btn btn-default"
+        type="submit"
+      >
+        Request Reset Password
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Test Resetform Component Resetform component renders without crushing 1`] = `
+<div
+  className="container"
+  id="loginPage"
+>
+  <div
+    className="jumbotron"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <h2>
+         Reset Password 
+      </h2>
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            name="newpassword"
+            placeholder="New Password"
+            required={true}
+            type="password"
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            name="confirmpassword"
+            placeholder="Confirm Password"
+            required={true}
+            type="password"
+          />
+        </div>
+      </div>
+      <button
+        className="btn btn-default"
+        type="submit"
+      >
+        Reset Password
+      </button>
+    </form>
+  </div>
+</div>
+`;

@@ -1,0 +1,423 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test AddBook Component Addbook component renders without crushing 1`] = `
+<div
+  style={
+    Object {
+      "color": "#337ab7",
+      "padding": "30px",
+    }
+  }
+>
+  <button
+    className="btn btn-primary"
+    onClick={[Function]}
+  >
+    Go Back
+  </button>
+  <div
+    className="jumbotron"
+    id="signupPage"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <h2>
+         Add new book 
+      </h2>
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            id="title"
+            name="title"
+            onChange={[Function]}
+            placeholder="Enter Book Title"
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            id="author"
+            name="author"
+            onChange={[Function]}
+            placeholder="Enter Book Author"
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            id="year"
+            name="year"
+            onChange={[Function]}
+            placeholder="Enter Publication Year"
+            required={true}
+            type="number"
+            value=""
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            id="serial"
+            name="serial"
+            onChange={[Function]}
+            placeholder="Enter Serial Number"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <br />
+      <button
+        className="btn btn-primary"
+        type="submit"
+      >
+        Add Book
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Test Admin Component Admin component renders without crushing 1`] = `
+<div>
+  <h2
+    style={
+      Object {
+        "color": "#337ab7",
+        "padding": "5px",
+      }
+    }
+  >
+    Admin Dashboard
+  </h2>
+  <div>
+    <Link
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/addbook"
+    >
+      <button
+        className="btn btn-primary"
+        id="button"
+      >
+        Add Book
+      </button>
+    </Link>
+    <Link
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/upgradeuser"
+    >
+      <button
+        className="btn btn-primary"
+        id="button"
+      >
+        Change user status
+      </button>
+    </Link>
+    <Link
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/users"
+    >
+      <button
+        className="btn btn-primary"
+        id="button"
+      >
+        View users
+      </button>
+    </Link>
+  </div>
+  <br />
+  <h2
+    style={
+      Object {
+        "color": "#337ab7",
+        "padding": "5px",
+        "textAlign": "center",
+      }
+    }
+  >
+    Available Books
+  </h2>
+  <div
+    className="col=md-10"
+  >
+    <table
+      className="table"
+      id="table"
+    >
+      <thead>
+        <tr>
+          <th>
+            Book
+          </th>
+          <th>
+            Author
+          </th>
+          <th>
+            Publication Year
+          </th>
+          <th>
+            Edit Book
+          </th>
+          <th>
+            Delete Book
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Test AllUsers Component AllUsers component renders without crushing 1`] = `
+<div
+  style={
+    Object {
+      "color": "#337ab7",
+      "padding": "20px",
+    }
+  }
+>
+  <h2
+    style={
+      Object {
+        "color": "#337ab7",
+        "padding": "5px",
+        "textAlign": "center",
+      }
+    }
+  >
+    HelloBooks Users
+  </h2>
+  <br />
+  <div
+    className="col=md-8"
+  >
+    <table
+      className="table"
+      style={
+        Object {
+          "border": "1px solid grey",
+        }
+      }
+    >
+      <tr>
+        <th>
+          Email
+        </th>
+         
+        <th>
+          Name
+        </th>
+         
+        <th>
+          Admin
+        </th>
+      </tr>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Test EditBook Component EditBook component renders without crushing 1`] = `
+<div
+  style={
+    Object {
+      "color": "#337ab7",
+      "padding": "30px",
+    }
+  }
+>
+  <button
+    className="btn btn-primary"
+    onClick={[Function]}
+  >
+    Go Back
+  </button>
+  <div
+    className="jumbotron"
+    id="signupPage"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <h2>
+         Edit Book details 
+      </h2>
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            id="title"
+            name="title"
+            onChange={[Function]}
+            placeholder="Edit Book Title"
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            id="author"
+            name="author"
+            onChange={[Function]}
+            placeholder="Edit Book Author"
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            id="year"
+            name="year"
+            onChange={[Function]}
+            placeholder="Edit Publication Year"
+            required={true}
+            type="number"
+            value=""
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            id="serial"
+            name="serial"
+            onChange={[Function]}
+            placeholder="Edit Serial Number"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <br />
+      <button
+        className="btn btn-primary"
+        type="submit"
+      >
+        Edit Book
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Test UpgradeUser Component UpgradeUser component renders without crushing 1`] = `
+<div
+  style={
+    Object {
+      "color": "#337ab7",
+      "padding": "30px",
+    }
+  }
+>
+  <button
+    className="btn btn-primary"
+    onClick={[Function]}
+  >
+    Go Back
+  </button>
+  <div
+    className="jumbotron"
+    id="signupPage"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <h2>
+         Change User Status
+      </h2>
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            id="email"
+            name="email"
+            onChange={[Function]}
+            placeholder="Enter Email"
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <br />
+      <button
+        className="btn btn-primary"
+        type="submit"
+      >
+        Change Status
+      </button>
+    </form>
+  </div>
+</div>
+`;

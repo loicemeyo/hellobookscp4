@@ -1,0 +1,338 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Error Component Error component renders without crushing 1`] = `
+<div>
+  <div
+    id="error"
+  >
+    <img
+      src="uh-oh.jpg"
+    />
+  </div>
+  <br />
+  <div
+    id="error2"
+  >
+    <p>
+       Sorry! This page does not exist 
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Test Footer Component Footer component renders without crushing 1`] = `
+<div
+  className="footer"
+>
+  <div
+    class="container"
+  >
+    <p
+      class="footer-block"
+    >
+       Copyright 2018. Loice Meyo 
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Test Home Component Home component renders without crushing 1`] = `
+<div>
+  <div
+    className="jumbotron"
+    id="welcomePage"
+  >
+    <p>
+      Hello-Books is a simple application that helps manage a library 
+      <br />
+      and its processes like stocking, tracking and renting books.
+    </p>
+    <div
+      id="outer"
+    >
+      <Link
+        class="inner"
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="/signup"
+      >
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Get Started
+        </button>
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Test Login Component Login component renders without crushing 1`] = `
+<div
+  className="container"
+  id="loginPage"
+>
+  <div
+    className="jumbotron"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <h2>
+         Log in 
+      </h2>
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            id="email"
+            name="email"
+            onChange={[Function]}
+            placeholder="Enter Email"
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            defaultValue=""
+            id="password"
+            name="password"
+            onChange={[Function]}
+            placeholder="Enter Password"
+            required={false}
+            type="password"
+          />
+        </div>
+      </div>
+      <br />
+      <button
+        className="btn btn-default"
+        type="submit"
+      >
+        Login
+      </button>
+      <br />
+      <br />
+      <div>
+        Forgot password? 
+        <Link
+          onlyActiveOnIndex={false}
+          style={Object {}}
+          to="/requestreset"
+        >
+          Click here to reset your password
+        </Link>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Test Navigation Component Navigation component renders without crushing 1`] = `
+<nav
+  className="navbar navbar-expand-lg navbar-light bg-light"
+>
+  <a
+    className="navbar-brand"
+  >
+    <Link
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/"
+    >
+      Hello Books
+    </Link>
+  </a>
+  <button
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    className="navbar-toggler"
+    data-target="#navbarNav"
+    data-toggle="collapse"
+    type="button"
+  >
+    <span
+      className="navbar-toggler-icon"
+    />
+  </button>
+  <div
+    className="collapse navbar-collapse"
+    id="navbarNav"
+  >
+    <ul
+      className="navbar-nav"
+    >
+      <li
+        className="nav-item active"
+      >
+        <a
+          className="nav-link"
+        >
+          <Link
+            className="inner"
+            onlyActiveOnIndex={false}
+            style={Object {}}
+            to="/"
+          >
+            Home
+          </Link>
+        </a>
+      </li>
+      <li
+        className="nav-item active"
+      >
+        <a
+          className="nav-link"
+        >
+          <Link
+            className="inner"
+            onlyActiveOnIndex={false}
+            style={Object {}}
+            to="/signup"
+          >
+            Signup
+          </Link>
+        </a>
+      </li>
+      <li
+        className="nav-item active"
+      >
+        <a
+          className="nav-link"
+        >
+          <Link
+            className="inner"
+            onlyActiveOnIndex={false}
+            style={Object {}}
+            to="/login"
+          >
+            Login
+          </Link>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;
+
+exports[`Test Root Component Root component renders without crushing 1`] = `
+<div>
+  <Navigation />
+  <Footer />
+</div>
+`;
+
+exports[`Test Signup Component Signup component renders without crushing 1`] = `
+<div>
+  <div
+    className="jumbotron"
+    id="signupPage"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <h2>
+         Sign up 
+      </h2>
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            id="username"
+            name="name"
+            onChange={[Function]}
+            placeholder="Enter Username"
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            id="email"
+            name="email"
+            onChange={[Function]}
+            placeholder="Enter Email"
+            required={true}
+            type="email"
+            value=""
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            defaultValue=""
+            id="password"
+            name="password"
+            onChange={[Function]}
+            placeholder="Enter Password"
+            required={false}
+            type="password"
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-6"
+        >
+          <input
+            className="form-control"
+            defaultValue=""
+            id="passwordb"
+            name="passwordb"
+            onChange={[Function]}
+            placeholder="Confirm Password"
+            required={false}
+            type="password"
+          />
+        </div>
+      </div>
+      <br />
+      <button
+        className="btn btn-default"
+        type="submit"
+      >
+        Signup
+      </button>
+    </form>
+  </div>
+</div>
+`;
