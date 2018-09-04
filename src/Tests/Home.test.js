@@ -9,16 +9,15 @@ import Loginform from "../forms/login";
 import Signupform from "../forms/signup";
 import Footer from "../Components/Footer";
 import ReactDOM from "react-dom";
-import App from "../App";
 import moxios from "moxios";
 import sinon from "sinon";
 
 
-xit("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+// xit("renders without crashing", () => {
+//   const div = document.createElement("div");
+//   ReactDOM.render(<App />, div);
+//   ReactDOM.unmountComponentAtNode(div);
+// });
 
 describe("Test Home Component", () => {
   const wrapper = shallow(<Home />);
