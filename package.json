@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
     "enzyme-to-json": "^3.3.4",
+    "jw-react-pagination": "^1.0.7",
     "jwt-decode": "^2.2.0",
     "lint": "^1.1.2",
     "react": "^16.4.2",
