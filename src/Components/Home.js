@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "../App.css";
 import { Link } from "react-router";
 import "react-bootstrap";
+/**
+ * The Home component displays the welcome message and signup/login options
+ */
+
 class Home extends Component {
   render() {
     return (

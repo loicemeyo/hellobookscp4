@@ -1,7 +1,9 @@
 import React from "react";
 import { Route, Redirect } from "react-router";
 
-//protect urls so that they cannot be accessed before login
+/**
+ * This Component protect urls so that they cannot be accessed before login
+ */
 
 const ProtectedRoute = ({ component: Values, Component, ...rest}) => (
   <Route

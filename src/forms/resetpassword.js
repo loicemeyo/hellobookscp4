@@ -2,14 +2,28 @@ import React from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
 
+/**
+ * This component renders the password reset page
+ */
 class Resetform extends React.Component {
 
+    /**
+     * This function sets the state to the new field value as entered by the user
+     * @param {string} e
+     * @returns {string} value
+     */
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
-
+    /**
+     * This function obtains the password resetToken and email for the user
+     * Then makes a server request to change email
+     * @param {Password} new_password
+     * @param {Password} confrim_new_password
+     * @return {string} message
+     */
     handleSubmit = (event) => {
         event.preventDefault();
         const token = this.props.params.token

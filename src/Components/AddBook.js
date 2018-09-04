@@ -3,6 +3,10 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from "react-router";
 
+/**
+ * This component enables an admin to add a new book to the library
+ */
+
 class AddBook extends Component {
     state = {
         title:'',
@@ -10,17 +14,29 @@ class AddBook extends Component {
         year:'',
         serial:'',
     }
+    /**
+     * Allow the admin to view this function only when they are logged in.
+     * Otherwise, redirect to login
+     */
     componentDidMount() {
         const token = localStorage.getItem("access_token");
         if (!token) {
             return browserHistory.push("/login");
         }
     }
+    /**
+     * This function sets the state to the new field value as entered by the user
+     */
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
+    /**
+     * Post a new book to the server when a user clicks on 'submit'
+     * @param {string} e
+     * @returns {object} newbook
+     */
     handleSubmit = (event) => {
         event.preventDefault();
 
@@ -105,7 +121,7 @@ class AddBook extends Component {
                         id="serial"
                         className="form-control"
                         name="serial"
-                        type="string"
+                        type="text"
                         placeholder="Enter Serial Number"
                         required={false}
                         value={this.state.serial}

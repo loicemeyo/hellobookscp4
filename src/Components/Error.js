@@ -1,5 +1,9 @@
 import React, {Component} from "react";
-import error from "../assets/uh-oh.jpg"
+import error from "../assets/uh-oh.jpg";
+
+/**
+ * This component handles invalid page requests
+ */
 class Error extends Component {
   render () {
     return (

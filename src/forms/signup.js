@@ -3,11 +3,14 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router'
 import "../App.css"
-
+/**
+ * The Signup component
+ */
 class Signupform extends React.Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
         name: '',
         email:'',
@@ -15,14 +18,20 @@ class Signupform extends React.Component {
         passwordb:''
     }
     }
-    
+    /**
+     * This function sets the state to the new field value as entered by the user
+     * @param {string} e
+     * @returns {string} value
+     */
 
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
-
+    /**
+     * Makes a server request to validate a new user and allow signup
+     */
     handleSubmit = (event) => {
         event.preventDefault();
 
@@ -30,10 +39,9 @@ class Signupform extends React.Component {
             "name":this.state.name,
             "email":this.state.email,
             "password":this.state.password,
-            "confirm password":this.state.passwordb
+            "confirm_password":this.state.passwordb
         };
-        // console.log(newuser);
-
+        console.log("this ", newuser.confirm_password);
         axios.post("http://127.0.0.1:5000/api/v2/auth/register", newuser)
         .then(response => {
             browserHistory.push('/login')
@@ -56,6 +64,7 @@ class Signupform extends React.Component {
         });
            
     };
+    
     render (){
         return (
         <div>
