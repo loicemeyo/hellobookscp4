@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ProtectedRoute Component ProtectedRoute component renders without crushing 1`] = `
+<Route
+  render={[Function]}
+/>
+`;
