@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
 import axios from 'axios';
-import decode from 'jwt-decode';
 import swal from 'sweetalert';
 
 /**

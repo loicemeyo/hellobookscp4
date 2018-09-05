@@ -17,16 +17,6 @@ class EditBook extends Component {
         year:'',
         serial:'',
     }}
-     /**
-     * Allow the admin to view this function only when they are logged in.
-     * Otherwise, redirect to login
-     */
-    componentDidMount() {
-        const token = localStorage.getItem("access_token");
-        if (!token) {
-            return browserHistory.push("/login");
-        }
-    }
     /**
      * This function sets the state to the new field value as entered by the user
      * @param {string} e
@@ -39,11 +29,15 @@ class EditBook extends Component {
     }
     /**
      * Make server request to get the book by ID and populate input fields withe the current book details
+     * Allow the admin to view this function only when they are logged in.
      * @param {int} bookId
      * @returns {object}book
      */
     componentDidMount() {
         const token = localStorage.getItem('access_token');
+        if (!token) {
+            return browserHistory.push("/login");
+        }
         const bookId = this.props.params.id;
         const single_book_url = `http://127.0.0.1:5000/api/v2/books/${bookId}`
 

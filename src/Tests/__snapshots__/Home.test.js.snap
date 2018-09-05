@@ -6,6 +6,7 @@ exports[`Test Error Component Error component renders without crushing 1`] = `
     id="error"
   >
     <img
+      alt="Invaid Page"
       src="uh-oh.jpg"
     />
   </div>
