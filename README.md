@@ -43,13 +43,15 @@ npm start
 ```
 <br>
 
-- Once running, a browser automatically opens the application. <br>
+- Once running, a browser automatically opens the application.
 
 <h4>Testing</h4>
-Hello-Books application makes use of jest, enzyme and sinon to test the application. To run tests, cd into the application and type: <br>
+- Hello-Books application makes use of jest, enzyme and sinon to test the application. To run tests, cd into the
+application and type: <br>
 ```sh
 npm run test
 ```
+<br>
 
 <h4>Authors</h4>
 
