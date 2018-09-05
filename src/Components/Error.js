@@ -9,7 +9,7 @@ class Error extends Component {
     return (
       <div>
         <div id="error">
-          <img src={error}/>
+          <img alt="Invaid Page" src={error}/>
         </div>
         <br/>
         <div id="error2">
