@@ -37,7 +37,7 @@ npm install
 ```
 <br>
 
-The application is set. Start the application by the command:<br>
+- The application is set. Start the application by the command:<br>
 ```sh
 npm start
 ```
@@ -46,11 +46,11 @@ npm start
 - Once running, a browser automatically opens the application. <br>
 
 <h4>Testing</h4>
-Hello-Books application makes use of jest, enzyme and sinon to test the application. To run tests, cd into the application and type: <br>
+- Hello-Books application makes use of jest, enzyme and sinon to test the application. To run tests, cd into the application and type: <br>
 ```sh
-npm start
+npm run test
 ```
-
+<br>
 <h4>Authors</h4>
 
 * **Loice Meyo**
