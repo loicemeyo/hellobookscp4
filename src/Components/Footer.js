@@ -9,7 +9,10 @@ class Footer extends React.Component {
     return (
       <div className="footer">
         <div class="container">
-          <p class="footer-block"> Copyright 2018. Loice Meyo </p>
+          <p class="footer-a">HelloBooks &copy; 2018</p>
+          <p class="footer-block"> Contact <a href={"mailto:loicemeyo@gmail.com"} style={{color:'aliceblue'}}> Loice Meyo </a></p>
+          <p class="footer-block">  Designed by Odi </p>
+    
         </div>
       </div>
     );

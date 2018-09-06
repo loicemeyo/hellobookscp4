@@ -3,6 +3,7 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router'
 import "../App.css"
+import { Base_url } from "./Navigation";
 /**
  * The Signup component
  */
@@ -42,7 +43,7 @@ class Signupform extends React.Component {
             "confirm_password":this.state.passwordb
         };
         console.log("this ", newuser.confirm_password);
-        axios.post("http://127.0.0.1:5000/api/v2/auth/register", newuser)
+        axios.post(`${Base_url}/api/v2/auth/register`, newuser)
         .then(response => {
             browserHistory.push('/login')
             swal("You have successfully registered to HelloBooks");

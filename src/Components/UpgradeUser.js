@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
+import { Base_url } from "./Navigation";
 
 /**
  * This component enables a logged in admin to upgrade a normal user to admin status or downgrade them
@@ -50,7 +51,7 @@ class UpgradeUser extends React.Component {
         const config ={ headers:{"Authorization":"Bearer " + token}}
     
 
-        axios.put("http://127.0.0.1:5000//api/v2/auth/register", upgradinguser, config)
+        axios.put(`${Base_url}/api/v2/auth/register`, upgradinguser, config)
             .then(response => {
             console.log(response);
             console.log(this.state);

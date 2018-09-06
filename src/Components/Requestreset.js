@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
+import { Base_url } from "./Navigation";
 
 /**
  * The Requestform component allows a user to submit a password request
@@ -32,7 +33,7 @@ class Requestform extends React.Component {
         };
 
 
-        axios.post("http://127.0.0.1:5000/api/v2/auth/reset-password", resettinguser)
+        axios.post(`${Base_url}/api/v2/auth/reset-password`, resettinguser)
             .then(response => {
                 localStorage.setItem("email",resettinguser.email)
 

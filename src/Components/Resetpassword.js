@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
+import { Base_url } from "./Navigation";
 
 /**
  * This component renders the password reset page
@@ -32,7 +33,7 @@ class Resetform extends React.Component {
         const confirm_password= event.target.elements.confirmpassword.value
 
 
-        axios.post(`http://127.0.0.1:5000/api/v2/auth/reset-password?token=${token}`, {email:email, password:new_password, confirm_password:confirm_password})
+        axios.post(`${Base_url}/api/v2/auth/reset-password?token=${token}`, {email:email, password:new_password, confirm_password:confirm_password})
             .then(() => {
                     swal("You have successfully reset your password");
                 }).catch(error => {

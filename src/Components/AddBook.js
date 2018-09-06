@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from "react-router";
+import { Base_url } from "./Navigation"
 
 /**
  * This component enables an admin to add a new book to the library
@@ -51,8 +52,7 @@ class AddBook extends Component {
         
         const config ={ headers:{"Authorization":"Bearer " + token}}
        
-
-        axios.post("http://127.0.0.1:5000/api/v2/books", newbook, config)
+        axios.post(`${Base_url}/api/v2/books/`, newbook, config)
         .then(response => {
             console.log(response);
             console.log(this.state);

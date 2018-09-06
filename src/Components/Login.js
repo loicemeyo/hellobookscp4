@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, browserHistory } from 'react-router';
 import axios from 'axios';
 import swal from 'sweetalert';
+import { Base_url } from "./Navigation";
 
 /**
  * The Login component
@@ -33,8 +34,8 @@ class Loginform extends React.Component {
             email: this.state.email,
             password: this.state.password
         };
-
-        return axios.post("http://127.0.0.1:5000/api/v2/auth/login", logginguser)
+        console.log(Base_url)
+        return axios.post(`${Base_url}/api/v2/auth/login`, logginguser)
             .then(response => {
                 console.log(response.data.Admin)
                 localStorage.setItem("access_token", response.data.Token)
@@ -48,10 +49,10 @@ class Loginform extends React.Component {
 
             }).catch(error => {
                 console.log(error)
-                if (error.response.status === 401) {
-                    const message = error.response.data.Message;
-                    swal("message!!", message, "error");
-                }
+                // if (error.response.status === 401) {
+                //     const message = error.response.data.Message;
+                //     swal("message!!", message, "error");
+                // }
             });
 
 

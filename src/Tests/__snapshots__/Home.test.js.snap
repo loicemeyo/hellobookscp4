@@ -31,7 +31,19 @@ exports[`Test Footer Component Footer component renders without crushing 1`] = `
     <p
       class="footer-block"
     >
-       Copyright 2018. Loice Meyo 
+       Designed by: Odi
+    </p>
+    <p
+      class="footer-block"
+    >
+       Contact: href=
+      mailto:loicemeyo@gmail.com
+       Loice Meyo 
+    </p>
+    <p
+      class="footer-block"
+    >
+       HelloBooks.&copy 2018 
     </p>
   </div>
 </div>

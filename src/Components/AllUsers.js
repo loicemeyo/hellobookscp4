@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { browserHistory } from "react-router";
+import { Base_url } from "./Navigation";
 
 /**
  * This component displays all the users of the library
@@ -28,7 +29,7 @@ class AllUsers extends Component {
     const config = { headers: { "Authorization": "Bearer " + token } };
 
 
-    axios.get("http://127.0.0.1:5000/api/v2/auth/register", config)
+    axios.get(`${Base_url}/api/v2/auth/register`, config)
       .then(response => {
         
         this.setState({

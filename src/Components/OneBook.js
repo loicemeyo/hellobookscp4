@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import axios from 'axios';
 import swal from 'sweetalert';
+import { Base_url } from "./Navigation";
 
 /**
  * This component renders a single book
@@ -26,7 +27,7 @@ class OneBook extends Component {
         const token = localStorage.getItem("access_token");
         const email = localStorage.getItem("email")
         const config = { headers: { "Authorization": "Bearer " + token } };
-        const borrow_book_url = `http://127.0.0.1:5000/api/v2/users/books/${bookId}`
+        const borrow_book_url = `${Base_url}/api/v2/users/books/${bookId}`
         axios.post(borrow_book_url, { email: email }, config)
             .then(response => {
                 console.log(response)
@@ -54,7 +55,7 @@ class OneBook extends Component {
         const token = localStorage.getItem("access_token");
         const email = localStorage.getItem("email")
         const config = { headers: { "Authorization": "Bearer " + token } };
-        const borrow_book_url = `http://127.0.0.1:5000/api/v2/users/books/${bookId}`
+        const borrow_book_url = `${Base_url}/api/v2/users/books/${bookId}`
         axios.put(borrow_book_url, { email: email }, config)
             .then(response => {
                 
@@ -75,7 +76,7 @@ class OneBook extends Component {
     componentWillMount(){
         const token = localStorage.getItem("access_token");
         const bookId = this.props.params.id;
-        const single_book_url = `http://127.0.0.1:5000/api/v2/books/${bookId}`
+        const single_book_url = `${Base_url}/api/v2/books/${bookId}`
 
         const config = { headers: { 'Authorization': "Bearer " + token } };
 
