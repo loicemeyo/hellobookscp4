@@ -94,12 +94,27 @@ font-weight: 1200;
     height: 60px;
     background-color:#337ab7!important;
     margin-bottom: 10px;
-    text-align: center;
+    /* text-align: center; */
     color: aliceblue;
 }
 .footer-block {
-      margin: 20px 0;
+      margin: 2px 0;
+      display: inline-block;
+      padding: 5px;
+      margin-right: 150px;
+      margin-left: 90px;
+      margin-top: 15px
     }
+.footer-a{
+  text-align: left;
+  margin-top: 15px;
+  margin-left: 50px;
+  margin-right: 200px;
+  display: inline-block;
+}
+#a{
+  color: aliceblue;
+}
 #input{
   text-align: center;
 }
@@ -107,13 +122,16 @@ font-weight: 1200;
   width: 50%;
   margin-left: 24%;
   margin-top: 14%;
-  margin-bottom: 15%
+  margin-bottom: 8%
 }
 #signupPage {
   width: 50%;
   margin-left: 24%;
   margin-top: 5%;
   margin-bottom: 9%
+}
+#history{
+  margin-bottom: 25% 
 }
 #loginPage{
   width: 50%;
