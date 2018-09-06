@@ -2,13 +2,10 @@ import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
 configure({ adapter: new Adapter() });
+/**
+ * define function to mock the local storage 
+ */
 
-// const localStorageMock = {
-//   getItem: jest.fn(),
-//   setItem: jest.fn(),
-//   clear: jest.fn()
-// };
-// global.localStorage = localStorageMock;
 const localStorageMock = (function() {
   let store = {};
 
