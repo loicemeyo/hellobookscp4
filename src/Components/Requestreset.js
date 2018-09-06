@@ -1,27 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
-import { browserHistory } from 'react-router';
 import { Base_url } from "./Navigation";
 
 /**
- * This component enables a logged in admin to upgrade a normal user to admin status or downgrade them
+ * The Requestform component allows a user to submit a password request
  */
-
-class UpgradeUser extends React.Component {
+class Requestform extends React.Component {
     state = {
         email: '',
     
-    }
-     /**
-     * Allow the admin to view this function only when they are logged in.
-     * Otherwise, redirect to login
-     */
-    componentDidMount (){
-        const token = localStorage.getItem("access_token");
-        if(!token){
-            return browserHistory.push("/login")
-        }
     }
     /**
      * This function sets the state to the new field value as entered by the user
@@ -34,33 +22,22 @@ class UpgradeUser extends React.Component {
         });
     }
     /**
-     * Make server request to upgrade/downgrade a user
-     * @param {int} bookId
-     * @returns {object}book
+     * Makes a server request to validate email and send a reset link to user's email
      */
     handleSubmit = (event) => {
         event.preventDefault();
 
-        const upgradinguser = {
+        const resettinguser = {
 
             email: this.state.email,
-    
         };
 
-        const token = localStorage.getItem('access_token');
-        const config ={ headers:{"Authorization":"Bearer " + token}}
-    
 
-        axios.put(`${Base_url}/api/v2/auth/register`, upgradinguser, config)
+        axios.post(`${Base_url}/api/v2/auth/reset-password`, resettinguser)
             .then(response => {
-            console.log(response);
-            console.log(this.state);
-            browserHistory.push('/')
-            if(response.data.status === 200){
-                swal("You have successfully set this user's status");
-            } else {
-                swal(response.data.message);
-            }
+                localStorage.setItem("email",resettinguser.email)
+
+                swal("Please view your email for a link to reset your password");
 
             }).catch(error => {
                 console.log(error.response);
@@ -75,15 +52,16 @@ class UpgradeUser extends React.Component {
     };
     render() {
         return (
-            <div style={{ padding: '30px', color: '#337ab7' }}>
-            <button className="btn btn-primary" onClick={browserHistory.goBack}>Go Back</button>
-            <div className="jumbotron" id="signupPage">
+            <div className="container" id="loginPage" >
+            <div className="jumbotron">
+        
                 <form onSubmit={this.handleSubmit}>
-                    <h2> Change User Status</h2>
+                    <h2> Request Reset Password </h2>
                     <div className="row">
                         <div className="col-xs-6">
                             <input
                                 id="email"
+                                className="form-control"
                                 name="email"
                                 type="text"
                                 placeholder="Enter Email"
@@ -94,12 +72,12 @@ class UpgradeUser extends React.Component {
                         </div>
                     </div>
                     <br />
-                    <button className='btn btn-primary' type="submit">Change Status</button>
+                    <button className='btn btn-default' type="submit">Request Reset Password</button>
                 </form>
-            </div>
+                </div>
             </div>
 
         )
     }
 }
-export default UpgradeUser;
+export default Requestform;

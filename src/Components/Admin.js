@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, browserHistory } from "react-router";
 import swal from "sweetalert";
 import axios from "axios";
+import { Base_url } from "./Navigation";
 
 /**
  * This component renders the admin dashboard
@@ -27,7 +28,7 @@ class Admin extends Component {
     const config = { headers: { "Authorization": "Bearer " + token } };
 
 
-    axios.get("http://127.0.0.1:5000/api/v2/books", config)
+    axios.get(`${Base_url}/api/v2/books/`, config)
       .then(response => {
         this.setState({ allBooks: response.data.books });
       }).catch(error => {
@@ -50,7 +51,7 @@ class Admin extends Component {
   handleDelete(bookId) {
     const token = localStorage.getItem("access_token");
     const config = { headers: { "Authorization": "Bearer " + token } };
-    const delete_book_url = `http://127.0.0.1:5000/api/v2/books/${bookId}`;
+    const delete_book_url = `${Base_url}/api/v2/books/${bookId}`;
     swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover this book!",

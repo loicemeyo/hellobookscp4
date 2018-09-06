@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link, browserHistory} from 'react-router';
 import swal from "sweetalert";
+import { Base_url } from "./Navigation";
 
 /**
  * This component displays the borrowing history of a user
@@ -24,7 +25,7 @@ class BorrowHistory extends Component {
         const config = { headers: { 'Authorization': "Bearer " + token } };
 
 
-        axios.get("http://127.0.0.1:5000/api/v2/users/books", config)
+        axios.get(`${Base_url}/api/v2/users/books`, config)
             .then(response => {
                 this.setState({ bookHistory: response.data.book_history })
                 console.log(this.state.bookHistory)
@@ -39,7 +40,7 @@ class BorrowHistory extends Component {
         console.log(this.state)
         return (
 
-            <div style={{ padding: '20px', color:'#337ab7'}}>
+            <div style={{ padding: '20px', color:'#337ab7'}} id="history">
             <button className='btn btn-primary' onClick={browserHistory.goBack}>Back</button>
                 <h2 style={{textAlign:'center'}}>Borrowing History</h2>
                 <div id='allbooks' className="row">

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { browserHistory, Link } from "react-router";
 import JwPagination from "jw-react-pagination";
+import { Base_url } from "./Navigation";
 
 /**
  * This component renders all books in the library
@@ -33,14 +34,15 @@ class AllBooks extends Component {
     const config = { headers: { "Authorization": "Bearer " + token } };
 
 
-    axios.get("http://127.0.0.1:5000/api/v2/books", config)
+    axios.get(`${Base_url}/api/v2/books`, config)
       .then(response => {
         this.setState({ allBooks: response.data.books });
       }).catch();
   }
   render() {
+    console.log("vitabu", this.state.allBooks)
     return (
-      <div style={{ padding: "20px", color: "#337ab7" }}>
+      <div style={{ padding: "20px", color: "#337ab7" }}id="history">
         <h2 style={{textAlign:"center"}}>All Books</h2>
         <button id="back" className="btn btn-primary" onClick={browserHistory.goback}>Back</button>
         <div id='allbooks' className="row">

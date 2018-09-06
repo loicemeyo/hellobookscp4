@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
 import {browserHistory} from 'react-router';
+import { Base_url } from "./Navigation";
 
 /**
  * This component enables an admin to edit a book to the library
@@ -39,7 +40,7 @@ class EditBook extends Component {
             return browserHistory.push("/login");
         }
         const bookId = this.props.params.id;
-        const single_book_url = `http://127.0.0.1:5000/api/v2/books/${bookId}`
+        const single_book_url = `${Base_url}/api/v2/books/${bookId}`
 
         const config = { headers: { 'Authorization': "Bearer " + token } };
 
@@ -76,7 +77,7 @@ class EditBook extends Component {
         };
             const token = localStorage.getItem('access_token');
             const bookId = this.props.params.id;
-            const edit_book_url = `http://127.0.0.1:5000/api/v2/books/${bookId}`
+            const edit_book_url = `${Base_url}/api/v2/books/${bookId}`
             const config ={ headers:{"Authorization":"Bearer " + token}}
             
             axios.put(edit_book_url, editbook, config)
