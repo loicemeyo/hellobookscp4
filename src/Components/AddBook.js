@@ -57,6 +57,7 @@ class AddBook extends Component {
             console.log(response);
             console.log(this.state);
             if(response.data.status === 201){
+                browserHistory.push("/admin")
                 swal("new book successfully added");
             } else {
                 swal(response.data.message);
