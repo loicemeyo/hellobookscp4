@@ -2,6 +2,8 @@ import React from "react";
 import { Link, browserHistory} from "react-router";
 import axios from 'axios';
 import swal from 'sweetalert';
+
+const Base_url = "https://hellobooks-api-db.herokuapp.com"
 /**
  * Navigation Component
  * Displays signup/login when user is not logged in
@@ -15,7 +17,6 @@ class Navigation extends React.Component {
    * The logout function is embedded within navigation
    */
   handleLogout = (event) => {
-
     const loggingoutuser = {
 
         email: localStorage.getItem('email'),
@@ -24,7 +25,7 @@ class Navigation extends React.Component {
     const token = localStorage.getItem('access_token');
     const config ={ headers:{"Authorization":"Bearer " + token}}
 
-    axios.post("http://127.0.0.1:5000/api/v2/auth/logout", loggingoutuser, config)
+    axios.post(`${Base_url}/api/v2/auth/logout`, loggingoutuser, config)
         .then(response => {
             localStorage.removeItem("access_token")
             localStorage.removeItem('email')
@@ -32,6 +33,7 @@ class Navigation extends React.Component {
             swal("You have successfully logged out");
          
         }).catch(error => {
+          console.log(error)
               if (error.response.status === 401) {
                 localStorage.removeItem('access_token');
                 localStorage.removeItem('email')
@@ -101,3 +103,4 @@ class Navigation extends React.Component {
   }
 }
 export default Navigation;
+export { Base_url }
