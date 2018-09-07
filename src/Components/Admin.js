@@ -25,20 +25,8 @@ class Admin extends Component {
   onChangePage(pageOfItems) {
     this.setState({ pageOfItems });
   }
-  /**
-     * Allow the admin to view this function only when they are logged in.
-     * Otherwise, redirect to login
-     * @returns {object} admin
-     */
-  componentDidMount() {
-    const token = localStorage.getItem("access_token");
-    if (!token) {
-      return browserHistory.push("/login");
-    }
 
-    const config = { headers: { "Authorization": "Bearer " + token } };
-
-
+  getBooks = (config) => {
     axios.get(`${Base_url}/api/v2/books/`, config)
       .then(response => {
         this.setState({ allBooks: response.data.books });
@@ -53,6 +41,21 @@ class Admin extends Component {
         }
 
       });
+  }
+  /**
+     * Allow the admin to view this function only when they are logged in.
+     * Otherwise, redirect to login
+     * @returns {object} admin
+     */
+  componentDidMount() {
+    const token = localStorage.getItem("access_token");
+    if (!token) {
+      return browserHistory.push("/login");
+    }
+    const config = { headers: { "Authorization": "Bearer " + token } };
+
+    this.getBooks(config)
+
   }
   /**
    * Make a server request to delete a book
@@ -74,7 +77,7 @@ class Admin extends Component {
         axios.delete(delete_book_url, config)
           .then(response => {
             swal("Success", response.data.message, "success");
-            browserHistory.push("/admin");
+            this.getBooks(config)
           })
           .catch(error => {
             if (error.response.status === 404) {
@@ -111,7 +114,7 @@ class Admin extends Component {
             {this.state.allBooks.length > 0 &&
             this.state.pageOfItems.map(book =>
                 <tr key={book.ID}>
-                  <td><Link to={`/books/${book.ID}`}>{book.Title}></Link></td>
+                  <td><Link to={`/books/${book.ID}`}>{book.Title}</Link></td>
                   <td>{book.Author}</td>
                   <td>{book.Publication}</td>
                   <td><Link to={`/editbook/${book.ID}`}><button className="btn btn-default">Edit Book</button></Link></td>
