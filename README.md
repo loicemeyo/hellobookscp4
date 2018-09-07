@@ -61,6 +61,6 @@ npm run test
 
 <h4>First publication</h4>
 
-* **2018**
+**2018**
 
 
