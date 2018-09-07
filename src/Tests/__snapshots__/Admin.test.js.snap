@@ -203,6 +203,29 @@ exports[`Test Admin Component Admin component renders without crushing 1`] = `
       <tbody />
     </table>
   </div>
+  <div
+    style={
+      Object {
+        "float": "right",
+        "textDecoration": "none",
+      }
+    }
+  >
+    <t
+      initialPage={1}
+      items={Array []}
+      labels={
+        Object {
+          "first": "First",
+          "last": "Last",
+          "next": "Next",
+          "previous": "Previous",
+        }
+      }
+      onChangePage={[Function]}
+      pageSize={6}
+    />
+  </div>
 </div>
 `;
 
@@ -230,28 +253,54 @@ exports[`Test AllUsers Component AllUsers component renders without crushing 1`]
   <div
     className="col=md-8"
   >
-    <table
-      className="table"
-      style={
+    <div
+      className="card"
+    >
+      <table
+        className="table"
+        style={
+          Object {
+            "border": "1px solid grey",
+          }
+        }
+      >
+        <tr>
+          <th>
+            Name
+          </th>
+           
+          <th>
+            Email
+          </th>
+           
+          <th>
+            Admin
+          </th>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "float": "right",
+        "textDecoration": "none",
+      }
+    }
+  >
+    <t
+      initialPage={1}
+      labels={
         Object {
-          "border": "1px solid grey",
+          "first": "First",
+          "last": "Last",
+          "next": "Next",
+          "previous": "Previous",
         }
       }
-    >
-      <tr>
-        <th>
-          Email
-        </th>
-         
-        <th>
-          Name
-        </th>
-         
-        <th>
-          Admin
-        </th>
-      </tr>
-    </table>
+      onChangePage={[Function]}
+      pageSize={6}
+    />
   </div>
 </div>
 `;

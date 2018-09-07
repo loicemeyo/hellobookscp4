@@ -2,6 +2,7 @@
 
 exports[`Test AllBooks Component Allbooks component renders without crushing 1`] = `
 <div
+  id="history"
   style={
     Object {
       "color": "#337ab7",
@@ -57,6 +58,7 @@ exports[`Test AllBooks Component Allbooks component renders without crushing 1`]
 
 exports[`Test BorrowHistory Component BorrowHistory component renders without crushing 1`] = `
 <div
+  id="history"
   style={
     Object {
       "color": "#337ab7",
