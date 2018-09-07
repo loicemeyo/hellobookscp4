@@ -82,14 +82,9 @@ class EditBook extends Component {
             
             axios.put(edit_book_url, editbook, config)
             .then(response => {
-                console.log(response);
-                console.log(this.state);
-                if(response.data.status === 200){
                     swal("Book details successfully updated");
-                } else {
-                    swal(response.data.message);
-                }
-            }).catch({});
+                    browserHistory.push("/admin")
+                }).catch({});
 
         };
 
