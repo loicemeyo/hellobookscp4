@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/loicemeyo/hellobookscp4.svg?branch=develop)](https://travis-ci.org/loicemeyo/hellobookscp4)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b86bb24f160408b952fb05dc464275f)](https://www.codacy.com/app/loicemeyo/hellobookscp4?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=loicemeyo/hellobookscp4&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/loicemeyo/hellobookscp4/badge.svg?branch=develop)](https://coveralls.io/github/loicemeyo/hellobookscp4?branch=develop)
-
 <h3>Hello Books</h3>
 
 Hello-Books is a simple application that helps manage a library and its processes like stocking, tracking and renting books. A normal user (non-admin) can register to be a user, login, view all books available, borrow a book and logout. The admin, in addition to what the normal user can do is also able to create a new book, edit or delete an existing book.The admin role can also upgrade a normal user to admin status and view all the current users.<br><br>
