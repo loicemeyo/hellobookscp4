@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, browserHistory } from "react-router";
 import swal from "sweetalert";
 import axios from "axios";
+import JwPagination from "jw-react-pagination";
 import { Base_url } from "./Navigation";
 
 /**
@@ -10,9 +11,19 @@ import { Base_url } from "./Navigation";
 class Admin extends Component {
   constructor() {
     super();
+    this.onChangePage = this.onChangePage.bind(this);
     this.state = {
+      pageOfItems: [],
       allBooks: []
     };
+  }
+  /**
+   * Update the local state with a new page of Items
+   * @param {object} pageOfItems
+   * @returns {object} allBooks
+   */
+  onChangePage(pageOfItems) {
+    this.setState({ pageOfItems });
   }
   /**
      * Allow the admin to view this function only when they are logged in.
@@ -97,7 +108,8 @@ class Admin extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.allBooks.map(book =>
+            {this.state.allBooks.length > 0 &&
+            this.state.pageOfItems.map(book =>
                 <tr key={book.ID}>
                   <td><Link to={`/books/${book.ID}`}>{book.Title}></Link></td>
                   <td>{book.Author}</td>
@@ -109,6 +121,9 @@ class Admin extends Component {
               )}
             </tbody>
           </table>
+        </div>
+        <div style={{float:"right", textDecoration:"none"}}>
+          <JwPagination items = {this.state.allBooks} pageSize={6} onChangePage={this.onChangePage}/>
         </div>
       </div>
 
