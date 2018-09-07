@@ -55,7 +55,7 @@ class UpgradeUser extends React.Component {
             .then(response => {
             console.log(response);
             console.log(this.state);
-            browserHistory.push('/')
+            browserHistory.push("/admin")
             if(response.data.status === 200){
                 swal("You have successfully set this user's status");
             } else {
