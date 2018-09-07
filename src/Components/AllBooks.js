@@ -40,7 +40,6 @@ class AllBooks extends Component {
       }).catch();
   }
   render() {
-    console.log("vitabu", this.state.allBooks)
     return (
       <div style={{ padding: "20px", color: "#337ab7" }}id="history">
         <h2 style={{textAlign:"center"}}>All Books</h2>

@@ -36,11 +36,10 @@ class Requestform extends React.Component {
         axios.post(`${Base_url}/api/v2/auth/reset-password`, resettinguser)
             .then(response => {
                 localStorage.setItem("email",resettinguser.email)
-
+                
                 swal("Please view your email for a link to reset your password");
 
             }).catch(error => {
-                console.log(error.response);
                 if(error.response.status === 401){
                     swal (error.response.data.Message);
                 }

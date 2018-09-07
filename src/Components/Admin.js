@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, browserHistory } from "react-router";
 import swal from "sweetalert";
 import axios from "axios";
+import JwPagination from "jw-react-pagination";
 import { Base_url } from "./Navigation";
 
 /**
@@ -10,24 +11,22 @@ import { Base_url } from "./Navigation";
 class Admin extends Component {
   constructor() {
     super();
+    this.onChangePage = this.onChangePage.bind(this);
     this.state = {
+      pageOfItems: [],
       allBooks: []
     };
   }
   /**
-     * Allow the admin to view this function only when they are logged in.
-     * Otherwise, redirect to login
-     * @returns {object} admin
-     */
-  componentDidMount() {
-    const token = localStorage.getItem("access_token");
-    if (!token) {
-      return browserHistory.push("/login");
-    }
+   * Update the local state with a new page of Items
+   * @param {object} pageOfItems
+   * @returns {object} allBooks
+   */
+  onChangePage(pageOfItems) {
+    this.setState({ pageOfItems });
+  }
 
-    const config = { headers: { "Authorization": "Bearer " + token } };
-
-
+  getBooks = (config) => {
     axios.get(`${Base_url}/api/v2/books/`, config)
       .then(response => {
         this.setState({ allBooks: response.data.books });
@@ -42,6 +41,21 @@ class Admin extends Component {
         }
 
       });
+  }
+  /**
+     * Allow the admin to view this function only when they are logged in.
+     * Otherwise, redirect to login
+     * @returns {object} admin
+     */
+  componentDidMount() {
+    const token = localStorage.getItem("access_token");
+    if (!token) {
+      return browserHistory.push("/login");
+    }
+    const config = { headers: { "Authorization": "Bearer " + token } };
+
+    this.getBooks(config)
+
   }
   /**
    * Make a server request to delete a book
@@ -63,7 +77,7 @@ class Admin extends Component {
         axios.delete(delete_book_url, config)
           .then(response => {
             swal("Success", response.data.message, "success");
-            browserHistory.push("/admin");
+            this.getBooks(config)
           })
           .catch(error => {
             if (error.response.status === 404) {
@@ -97,9 +111,10 @@ class Admin extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.allBooks.map(book =>
+            {this.state.allBooks.length > 0 &&
+            this.state.pageOfItems.map(book =>
                 <tr key={book.ID}>
-                  <td><Link to={`/books/${book.ID}`}>{book.Title}></Link></td>
+                  <td><Link to={`/books/${book.ID}`}>{book.Title}</Link></td>
                   <td>{book.Author}</td>
                   <td>{book.Publication}</td>
                   <td><Link to={`/editbook/${book.ID}`}><button className="btn btn-default">Edit Book</button></Link></td>
@@ -109,6 +124,9 @@ class Admin extends Component {
               )}
             </tbody>
           </table>
+        </div>
+        <div style={{float:"right", textDecoration:"none"}}>
+          <JwPagination items = {this.state.allBooks} pageSize={6} onChangePage={this.onChangePage}/>
         </div>
       </div>
 

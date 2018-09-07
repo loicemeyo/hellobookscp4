@@ -29,21 +29,29 @@ exports[`Test Footer Component Footer component renders without crushing 1`] = `
     class="container"
   >
     <p
-      class="footer-block"
+      class="footer-a"
     >
-       Designed by: Odi
+      HelloBooks © 2018
     </p>
     <p
       class="footer-block"
     >
-       Contact: href=
-      mailto:loicemeyo@gmail.com
-       Loice Meyo 
+       Contact 
+      <a
+        href="mailto:loicemeyo@gmail.com"
+        style={
+          Object {
+            "color": "aliceblue",
+          }
+        }
+      >
+         Loice Meyo 
+      </a>
     </p>
     <p
       class="footer-block"
     >
-       HelloBooks.&copy 2018 
+        Designed by Odi 
     </p>
   </div>
 </div>
@@ -160,17 +168,14 @@ exports[`Test Navigation Component Navigation component renders without crushing
 <nav
   className="navbar navbar-expand-lg navbar-light bg-light"
 >
-  <a
+  <Link
     className="navbar-brand"
+    onlyActiveOnIndex={false}
+    style={Object {}}
+    to="/"
   >
-    <Link
-      onlyActiveOnIndex={false}
-      style={Object {}}
-      to="/"
-    >
-      Hello Books
-    </Link>
-  </a>
+    Hello Books
+  </Link>
   <button
     aria-controls="navbarNav"
     aria-expanded="false"
